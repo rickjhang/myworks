@@ -1,0 +1,444 @@
+{\rtf1\ansi\ansicpg950\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="zh-TW">\
+<head>\
+  <meta charset="UTF-8">\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <title>\uc0\u27785 \u28024 \u24335 \u39080 \u26223 \u22823 \u26178 \u37912 </title>\
+  <!-- Tailwind CSS -->\
+  <script src="https://cdn.tailwindcss.com"></script>\
+  <!-- Google Fonts: Inter & Outfit for elegant digital typography -->\
+  <link rel="preconnect" href="https://fonts.googleapis.com">\
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;700&display=swap" rel="stylesheet">\
+\
+  <style>\
+    body \{\
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;\
+      overflow: hidden;\
+      user-select: none;\
+      background-color: #0b0f17;\
+    \}\
+\
+    /* \uc0\u25976 \u23383 \u31561 \u23532 \u23565 \u40778 \u65292 \u36991 \u20813 \u27599 \u31186 \u36339 \u21205 \u26178 \u25991 \u23383 \u23532 \u24230 \u24494 \u26179  */\
+    .tabular-digits \{\
+      font-variant-numeric: tabular-nums;\
+      letter-spacing: -0.04em;\
+    \}\
+\
+    /* \uc0\u36229 \u22823 \u23383 \u39636 \u33258 \u36969 \u25033 \u35222 \u31383  */\
+    .hero-time \{\
+      font-size: clamp(4.5rem, 18vw, 19vh);\
+      line-height: 0.95;\
+      text-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.4);\
+    \}\
+\
+    /* \uc0\u38617 \u23652 \u32972 \u26223 \u24179 \u28369 \u28129 \u20837 \u28129 \u20986 \u20999 \u25563  */\
+    .bg-layer \{\
+      position: absolute;\
+      inset: 0;\
+      background-size: cover;\
+      background-position: center;\
+      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);\
+      will-change: opacity, transform;\
+    \}\
+\
+    /* \uc0\u24494 \u22937 \u30340 \u32233 \u24930 \u21205 \u24907 \u32302 \u25918 \u25928 \u26524 \u65292 \u22686 \u21152 \u33256 \u22580 \u24863  (Ken Burns effect) */\
+    .ken-burns \{\
+      animation: gentleZoom 60s ease-in-out infinite alternate;\
+    \}\
+\
+    @keyframes gentleZoom \{\
+      0% \{ transform: scale(1); \}\
+      100% \{ transform: scale(1.05); \}\
+    \}\
+\
+    /* \uc0\u30952 \u30722 \u29627 \u29827 \u36074 \u24863  */\
+    .glass-card \{\
+      background: rgba(15, 23, 42, 0.35);\
+      backdrop-filter: blur(16px);\
+      -webkit-backdrop-filter: blur(16px);\
+      border: 1px solid rgba(255, 255, 255, 0.15);\
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\
+    \}\
+\
+    /* \uc0\u25511 \u21046 \u21015 \u38290 \u32622 \u33258 \u21205 \u28129 \u20986 \u38577 \u34255  */\
+    .idle-hidden \{\
+      opacity: 0;\
+      pointer-events: none;\
+      transition: opacity 0.5s ease;\
+    \}\
+\
+    .idle-visible \{\
+      opacity: 1;\
+      pointer-events: auto;\
+      transition: opacity 0.3s ease;\
+    \}\
+  </style>\
+</head>\
+<body class="relative w-screen h-screen flex flex-col justify-between items-center text-white cursor-default">\
+\
+  <!-- \uc0\u38617 \u23652 \u32972 \u26223 \u23481 \u22120  (\u23526 \u29694 \u28961 \u32299 \u20132 \u21449 \u28129 \u20837 \u28129 \u20986 ) -->\
+  <div id="bgLayerA" class="bg-layer ken-burns opacity-100 z-0"></div>\
+  <div id="bgLayerB" class="bg-layer ken-burns opacity-0 z-0"></div>\
+\
+  <!-- \uc0\u26580 \u21644 \u30340 \u26263 \u35282 \u36974 \u32617 \u23652 \u65292 \u30906 \u20445 \u25991 \u23383 \u22312 \u20219 \u20309 \u20809 \u24433 \u19979 \u37117 \u26997 \u28165 \u26224  -->\
+  <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/45 via-black/25 to-black/60 pointer-events-none"></div>\
+\
+  <!-- \uc0\u38914 \u37096 \u36039 \u35338 \u21312 \u65306 \u22320 \u29702 \u33287 \u30456 \u29255 \u36039 \u35338 \u12289 \u20498 \u25976 \u20999 \u25563 \u36914 \u24230  -->\
+  <header class="relative z-20 w-full px-8 pt-8 flex justify-between items-center text-sm md:text-base font-light tracking-wide text-white/90">\
+    <!-- \uc0\u22320 \u26223 \u22320 \u40670 \u31777 \u36848 \u27161 \u31844  -->\
+    <div id="locationBadge" class="flex items-center gap-2.5 px-4 py-2 rounded-full glass-card">\
+      <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">\
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>\
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>\
+      </svg>\
+      <span id="photoTitle" class="drop-shadow-sm font-medium">\uc0\u29790 \u22763 \u12539 \u38463 \u29246 \u21329 \u26031 \u23665 \u33032 \u38634 \u23792 </span>\
+    </div>\
+\
+    <!-- \uc0\u25563 \u22294 \u36914 \u24230 \u24494 \u26781 \u33287 \u27599 \u20998 \u25563 \u22294 \u29376 \u24907  -->\
+    <div class="flex items-center gap-3 glass-card px-4 py-2 rounded-full text-xs text-white/80">\
+      <span>\uc0\u27599 \u20998 \u37912 \u25563 \u26223 </span>\
+      <div class="w-16 h-1.5 bg-white/20 rounded-full overflow-hidden">\
+        <div id="minuteProgressBar" class="h-full bg-amber-400 transition-all duration-1000 ease-linear" style="width: 0%;"></div>\
+      </div>\
+      <span id="nextPhotoTimer" class="tabular-digits font-mono">60s</span>\
+    </div>\
+  </header>\
+\
+  <!-- \uc0\u30059 \u38754 \u20013 \u22830 \u65306 \u36229 \u22823 \u22411 \u26178 \u37912 \u20027 \u39636  -->\
+  <main class="relative z-20 flex flex-col items-center justify-center my-auto px-4 text-center">\
+    \
+    <!-- \uc0\u26085 \u26399 \u33287 \u26143 \u26399  -->\
+    <div id="dateDisplay" class="text-xl sm:text-2xl md:text-3xl font-light text-white/90 mb-3 tracking-widest drop-shadow-md">\
+      ----\uc0\u24180 --\u26376 --\u26085  \u26143 \u26399 -\
+    </div>\
+\
+    <!-- \uc0\u36229 \u22823 \u20027 \u26178 \u37912  HH:MM \u25110  HH:MM:SS -->\
+    <div class="flex items-baseline justify-center">\
+      <div id="timeMain" class="hero-time font-semibold tracking-tight tabular-digits text-white drop-shadow-2xl">\
+        00:00\
+      </div>\
+      <!-- \uc0\u31186 \u25976  (\u21487 \u35373 \u23450 \u38577 \u34255 \u25110 \u38283 \u21855 ) -->\
+      <span id="timeSeconds" class="tabular-digits font-light text-3xl sm:text-4xl md:text-5xl ml-3 text-amber-300/90 drop-shadow-lg self-end pb-3 sm:pb-6">\
+        :00\
+      </span>\
+      <!-- 12\uc0\u23567 \u26178 \u21046  AM/PM \u27161 \u31844  -->\
+      <span id="periodBadge" class="hidden text-base sm:text-xl font-medium tracking-wider uppercase ml-3 text-white/80 self-start pt-2">\
+        AM\
+      </span>\
+    </div>\
+\
+    <!-- \uc0\u26262 \u24515 \u21839 \u20505 \u25110 \u21363 \u26178 \u29376 \u24907 \u35486 \u21477  -->\
+    <div id="greetingMessage" class="mt-4 text-base sm:text-lg md:text-xl font-light text-white/85 tracking-wider drop-shadow-md">\
+      \uc0\u39000 \u24744 \u24230 \u36942 \u24179 \u38748 \u32780 \u32654 \u22909 \u30340 \u19968 \u21051 \
+    </div>\
+  </main>\
+\
+  <!-- \uc0\u24213 \u37096 \u25080 \u28014 \u25511 \u21046 \u21015  (\u38290 \u32622  3 \u31186 \u33258 \u21205 \u38577 \u34255 \u65292 \u28369 \u40736 \u31227 \u21205 \u25110 \u35320 \u25511 \u28014 \u29694 ) -->\
+  <footer id="controlBar" class="relative z-20 mb-8 px-5 py-3 rounded-2xl glass-card flex items-center gap-3 sm:gap-5 idle-visible shadow-2xl">\
+    \
+    <!-- \uc0\u31435 \u21363 \u25563 \u19979 \u19968 \u24373 \u39080 \u26223  -->\
+    <button id="btnNextPhoto" title="\uc0\u25163 \u21205 \u20999 \u25563 \u39080 \u26223 \u29031 " class="p-2.5 rounded-xl hover:bg-white/15 active:scale-95 transition-all text-white/90 hover:text-white flex items-center gap-1.5 text-xs sm:text-sm">\
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">\
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>\
+      </svg>\
+      <span class="hidden sm:inline">\uc0\u25563 \u19968 \u24373 </span>\
+    </button>\
+\
+    <div class="h-4 w-px bg-white/20"></div>\
+\
+    <!-- 12/24\uc0\u23567 \u26178 \u21046 \u20999 \u25563  -->\
+    <button id="btnToggleFormat" title="\uc0\u20999 \u25563  12 / 24 \u23567 \u26178 \u21046 " class="px-3 py-1.5 rounded-xl hover:bg-white/15 active:scale-95 transition-all text-xs sm:text-sm font-medium">\
+      24H\
+    </button>\
+\
+    <!-- \uc0\u31186 \u25976 \u39023 \u31034 \u38283 \u38364  -->\
+    <button id="btnToggleSeconds" title="\uc0\u38283 \u21855 /\u38364 \u38281 \u31186 \u25976 " class="px-3 py-1.5 rounded-xl hover:bg-white/15 active:scale-95 transition-all text-xs sm:text-sm font-medium text-amber-300">\
+      \uc0\u31186 \u25976 : \u38283 \
+    </button>\
+\
+    <div class="h-4 w-px bg-white/20"></div>\
+\
+    <!-- \uc0\u20840 \u34722 \u24149 \u20999 \u25563  -->\
+    <button id="btnFullscreen" title="\uc0\u36914 \u20837 /\u36864 \u20986 \u20840 \u34722 \u24149  (\u24555 \u36895 \u37749  F)" class="p-2.5 rounded-xl hover:bg-white/15 active:scale-95 transition-all text-white/90 hover:text-white">\
+      <svg id="iconFullscreen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">\
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>\
+      </svg>\
+    </button>\
+  </footer>\
+\
+  <script>\
+    /* -------------------------------------------------------------\
+       \uc0\u31934 \u36984 \u39640 \u30059 \u36074 \u39080 \u26223 \u22294 \u24235 \u65288 \u20358 \u33258  Unsplash \u39640 \u35299 \u26512 \u33258 \u28982 \u22320 \u26223 \u65289 \
+       \uc0\u27599 \u19968 \u24373 \u21253 \u21547 \u27161 \u38988 \u33287 \u25885 \u24433 \u22320 \u40670 \u65292 \u27599 \u20998 \u37912 \u38568 \u27231 \u25110 \u38918 \u24207 \u20999 \u25563 \
+    ------------------------------------------------------------- */\
+    const LANDSCAPES = [\
+      \{\
+        title: "\uc0\u29790 \u22763 \u12539 \u38463 \u29246 \u21329 \u26031 \u23665 \u33032 \u38634 \u23792 \u32676 ",\
+        url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u25386 \u23041 \u12539 \u32645 \u24343 \u25958 \u32676 \u23798 \u26997 \u20809 \u22812 \u31354 ",\
+        url: "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u26085 \u26412 \u12539 \u23500 \u22763 \u23665 \u33287 \u28165 \u26216 \u28548 \u28552 \u38642 \u28023 ",\
+        url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u21152 \u25343 \u22823 \u12539 \u29677 \u22827 \u22283 \u23478 \u20844 \u22290 \u36335 \u26131 \u26031 \u28246 ",\
+        url: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u20912 \u23798 \u12539 \u40657 \u27801 \u28760 \u33287 \u29572 \u27494 \u23721 \u33853 \u26085 \u26286 \u33394 ",\
+        url: "https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u32016 \u35199 \u34349 \u12539 \u31859 \u20315 \u23805 \u28771 \u26216 \u38695 \u22767 \u26223 ",\
+        url: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u32654 \u22283 \u12539 \u20778 \u21213 \u32654 \u22320 \u37195 \u38263 \u23721 \u37329 \u33426 \u33853 \u26085 ",\
+        url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u32681 \u22823 \u21033 \u12539 \u22810 \u27931 \u31859 \u33922 \u23665 \u33032 \u37329 \u33394 \u26397 \u38686 ",\
+        url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u34311 \u26684 \u34349 \u12539 \u39640 \u22320 \u38642 \u38695 \u23805 \u35895 \u33287 \u20185 \u22659 \u23567 \u28330 ",\
+        url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2560&q=85"\
+      \},\
+      \{\
+        title: "\uc0\u22826 \u24179 \u27915 \u12539 \u22799 \u23041 \u22839 \u28023 \u23736 \u38748 \u35600 \u28010 \u28263 ",\
+        url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=85"\
+      \}\
+    ];\
+\
+    // \uc0\u29376 \u24907 \u35373 \u23450 \
+    let currentPhotoIndex = 0;\
+    let activeLayer = 'A'; // 'A' \uc0\u25110  'B'\
+    let is24Hour = true;\
+    let showSeconds = true;\
+    let lastMinute = -1;\
+\
+    // DOM \uc0\u20803 \u32032 \u24555 \u21462 \
+    const bgLayerA = document.getElementById('bgLayerA');\
+    const bgLayerB = document.getElementById('bgLayerB');\
+    const photoTitle = document.getElementById('photoTitle');\
+    const timeMain = document.getElementById('timeMain');\
+    const timeSeconds = document.getElementById('timeSeconds');\
+    const periodBadge = document.getElementById('periodBadge');\
+    const dateDisplay = document.getElementById('dateDisplay');\
+    const greetingMessage = document.getElementById('greetingMessage');\
+    const minuteProgressBar = document.getElementById('minuteProgressBar');\
+    const nextPhotoTimer = document.getElementById('nextPhotoTimer');\
+    const controlBar = document.getElementById('controlBar');\
+\
+    const btnNextPhoto = document.getElementById('btnNextPhoto');\
+    const btnToggleFormat = document.getElementById('btnToggleFormat');\
+    const btnToggleSeconds = document.getElementById('btnToggleSeconds');\
+    const btnFullscreen = document.getElementById('btnFullscreen');\
+\
+    /* -------------------------------------------------------------\
+       \uc0\u38928 \u36617 \u20837 \u22294 \u29255 \u27231 \u21046 \u65306 \u30906 \u20445 \u24179 \u28369 \u28129 \u20837 \u19981 \u30772 \u22294 \
+    ------------------------------------------------------------- */\
+    function preloadImage(url) \{\
+      return new Promise((resolve) => \{\
+        const img = new Image();\
+        img.src = url;\
+        img.onload = () => resolve(url);\
+        img.onerror = () => resolve(url); // \uc0\u21363 \u20351 \u22833 \u25943 \u20063 \u22238 \u20659 \
+      \});\
+    \}\
+\
+    /* -------------------------------------------------------------\
+       \uc0\u25563 \u22721 \u32025 \u26680 \u24515 \u37007 \u36655  (\u38617 \u22294 \u23652  Cross-fade \u28129 \u20837 \u28129 \u20986 )\
+    ------------------------------------------------------------- */\
+    async function changeBackground(index) \{\
+      currentPhotoIndex = (index + LANDSCAPES.length) % LANDSCAPES.length;\
+      const photo = LANDSCAPES[currentPhotoIndex];\
+\
+      // \uc0\u38928 \u36617 \u21363 \u23559 \u35201 \u39023 \u31034 \u30340 \u22294 \u29255 \
+      await preloadImage(photo.url);\
+\
+      const targetLayer = (activeLayer === 'A') ? bgLayerB : bgLayerA;\
+      const currentLayer = (activeLayer === 'A') ? bgLayerA : bgLayerB;\
+\
+      // \uc0\u35373 \u23450 \u30446 \u27161 \u22294 \u23652 \u22294 \u29255 \u20006 \u35320 \u30332 \u28129 \u20837 \
+      targetLayer.style.backgroundImage = `url('$\{photo.url\}')`;\
+      targetLayer.style.opacity = '1';\
+      currentLayer.style.opacity = '0';\
+\
+      // \uc0\u26356 \u26032 \u22320 \u40670 \u25991 \u23383 \
+      photoTitle.textContent = photo.title;\
+\
+      // \uc0\u20999 \u25563 \u27963 \u36493 \u27161 \u35352 \
+      activeLayer = (activeLayer === 'A') ? 'B' : 'A';\
+\
+      // \uc0\u38918 \u24118 \u38928 \u20808 \u24555 \u21462 \u19979 \u19968 \u24373 \u22294 \u29255 \u65292 \u31680 \u30465 \u19968 \u20998 \u37912 \u24460 \u30340 \u25563 \u22294 \u31561 \u24453 \
+      const nextIndex = (currentPhotoIndex + 1) % LANDSCAPES.length;\
+      preloadImage(LANDSCAPES[nextIndex].url);\
+    \}\
+\
+    /* -------------------------------------------------------------\
+       \uc0\u26178 \u37912 \u33287 \u26085 \u26399 \u26356 \u26032 \u22120  (\u27599 \u31186 \u22519 \u34892 )\
+    ------------------------------------------------------------- */\
+    function updateClock() \{\
+      const now = new Date();\
+      const currentMinute = now.getMinutes();\
+      const currentSecond = now.getSeconds();\
+\
+      // \uc0\u27599 \u20998 \u37912 \u21083 \u36339 \u36681 \u26178  (\u25110 \u39318 \u27425 \u36617 \u20837 \u26178 )\u65292 \u26356 \u25563 \u24213 \u22294 \
+      if (lastMinute !== -1 && currentMinute !== lastMinute) \{\
+        changeBackground(currentPhotoIndex + 1);\
+      \}\
+      lastMinute = currentMinute;\
+\
+      // \uc0\u26356 \u26032 \u27599 \u20998 \u37912 \u25563 \u26223 \u20498 \u25976 \u33287 \u36914 \u24230 \u26781 \
+      const secondsLeft = 60 - currentSecond;\
+      const progressPercent = (currentSecond / 60) * 100;\
+      minuteProgressBar.style.width = `$\{progressPercent\}%`;\
+      nextPhotoTimer.textContent = `$\{secondsLeft\}s`;\
+\
+      // \uc0\u26684 \u24335 \u21270 \u26178 \u38291 \
+      let hours = now.getHours();\
+      const minutes = String(currentMinute).padStart(2, '0');\
+      const seconds = String(currentSecond).padStart(2, '0');\
+\
+      if (!is24Hour) \{\
+        const isPM = hours >= 12;\
+        periodBadge.classList.remove('hidden');\
+        periodBadge.textContent = isPM ? 'PM' : 'AM';\
+        hours = hours % 12 || 12;\
+      \} else \{\
+        periodBadge.classList.add('hidden');\
+      \}\
+\
+      timeMain.textContent = `$\{String(hours).padStart(2, '0')\}:$\{minutes\}`;\
+      timeSeconds.textContent = showSeconds ? `:$\{seconds\}` : '';\
+\
+      // \uc0\u26684 \u24335 \u21270 \u26085 \u26399 \u33287 \u26143 \u26399 \
+      const weekDays = ['\uc0\u26143 \u26399 \u26085 ', '\u26143 \u26399 \u19968 ', '\u26143 \u26399 \u20108 ', '\u26143 \u26399 \u19977 ', '\u26143 \u26399 \u22235 ', '\u26143 \u26399 \u20116 ', '\u26143 \u26399 \u20845 '];\
+      const year = now.getFullYear();\
+      const month = now.getMonth() + 1;\
+      const date = now.getDate();\
+      const dayName = weekDays[now.getDay()];\
+      dateDisplay.textContent = `$\{year\} \uc0\u24180  $\{month\} \u26376  $\{date\} \u26085  $\{dayName\}`;\
+\
+      // \uc0\u26681 \u25818 \u30070 \u21069 \u26178 \u27573 \u21205 \u24907 \u21839 \u20505 \
+      updateGreeting(now.getHours());\
+    \}\
+\
+    function updateGreeting(hour) \{\
+      let greet = '\uc0\u39000 \u24744 \u24230 \u36942 \u32654 \u22909 \u30340 \u19968 \u22825 ';\
+      if (hour >= 5 && hour < 9) \{\
+        greet = '\uc0\u28165 \u26216 \u30772 \u26313 \u65292 \u26032 \u30340 \u19968 \u22825 \u20805 \u28415 \u24076 \u26395 ';\
+      \} else if (hour >= 9 && hour < 12) \{\
+        greet = '\uc0\u19978 \u21320 \u26178 \u20809 \u65292 \u23560 \u27880 \u21069 \u34892 \u12289 \u38728 \u24863 \u35920 \u27803 ';\
+      \} else if (hour >= 12 && hour < 14) \{\
+        greet = '\uc0\u21320 \u24460 \u26178 \u20998 \u65292 \u20139 \u21463 \u19968 \u27573 \u25918 \u39686 \u26178 \u20809 ';\
+      \} else if (hour >= 14 && hour < 18) \{\
+        greet = '\uc0\u21521 \u38525 \u28459 \u27493 \u65292 \u22805 \u38525 \u28961 \u38480 \u32654 \u22909 ';\
+      \} else if (hour >= 18 && hour < 22) \{\
+        greet = '\uc0\u22812 \u24149 \u20302 \u22402 \u65292 \u28858 \u36523 \u24515 \u21368 \u19979 \u19968 \u25972 \u22825 \u30340 \u30130 \u24970 ';\
+      \} else \{\
+        greet = '\uc0\u28145 \u22812 \u38748 \u35600 \u65292 \u26143 \u31354 \u30456 \u20276 \u65292 \u39000 \u20320 \u22909 \u22818 \u25104 \u30495 ';\
+      \}\
+      greetingMessage.textContent = greet;\
+    \}\
+\
+    /* -------------------------------------------------------------\
+       \uc0\u28369 \u40736 \u33287 \u35320 \u25511 \u38290 \u32622 \u33258 \u21205 \u38577 \u34255 \u25511 \u21046 \u38754 \u26495 \
+    ------------------------------------------------------------- */\
+    let idleTimer = null;\
+    function resetIdleTimer() \{\
+      controlBar.classList.remove('idle-hidden');\
+      controlBar.classList.add('idle-visible');\
+      document.body.style.cursor = 'default';\
+\
+      clearTimeout(idleTimer);\
+      idleTimer = setTimeout(() => \{\
+        controlBar.classList.remove('idle-visible');\
+        controlBar.classList.add('idle-hidden');\
+        document.body.style.cursor = 'none';\
+      \}, 3500);\
+    \}\
+\
+    window.addEventListener('mousemove', resetIdleTimer);\
+    window.addEventListener('touchstart', resetIdleTimer);\
+    window.addEventListener('keydown', resetIdleTimer);\
+\
+    /* -------------------------------------------------------------\
+       \uc0\u20114 \u21205 \u25353 \u37397 \u20107 \u20214 \u30435 \u32893 \
+    ------------------------------------------------------------- */\
+    // \uc0\u31435 \u21363 \u25563 \u22294 \
+    btnNextPhoto.addEventListener('click', (e) => \{\
+      e.stopPropagation();\
+      changeBackground(currentPhotoIndex + 1);\
+    \});\
+\
+    // \uc0\u20999 \u25563  12H / 24H\
+    btnToggleFormat.addEventListener('click', (e) => \{\
+      e.stopPropagation();\
+      is24Hour = !is24Hour;\
+      btnToggleFormat.textContent = is24Hour ? '24H' : '12H';\
+      updateClock();\
+    \});\
+\
+    // \uc0\u38283 \u38364 \u31186 \u25976 \u39023 \u31034 \
+    btnToggleSeconds.addEventListener('click', (e) => \{\
+      e.stopPropagation();\
+      showSeconds = !showSeconds;\
+      btnToggleSeconds.textContent = showSeconds ? '\uc0\u31186 \u25976 : \u38283 ' : '\u31186 \u25976 : \u38364 ';\
+      timeSeconds.style.display = showSeconds ? 'inline' : 'none';\
+    \});\
+\
+    // \uc0\u20840 \u34722 \u24149 \u20999 \u25563 \
+    function toggleFullscreen() \{\
+      if (!document.fullscreenElement) \{\
+        document.documentElement.requestFullscreen().catch(err => \{\
+          console.log(`\uc0\u20840 \u34722 \u24149 \u20999 \u25563 \u21463 \u38480 : $\{err.message\}`);\
+        \});\
+      \} else \{\
+        document.exitFullscreen();\
+      \}\
+    \}\
+    btnFullscreen.addEventListener('click', (e) => \{\
+      e.stopPropagation();\
+      toggleFullscreen();\
+    \});\
+\
+    // \uc0\u24555 \u25463 \u37749 \u25903 \u25588 \
+    window.addEventListener('keydown', (e) => \{\
+      if (e.key.toLowerCase() === 'f') \{\
+        toggleFullscreen();\
+      \} else if (e.code === 'Space') \{\
+        // \uc0\u31354 \u30333 \u37749 \u31435 \u21363 \u25563 \u22294 \
+        e.preventDefault();\
+        changeBackground(currentPhotoIndex + 1);\
+      \}\
+    \});\
+\
+    /* -------------------------------------------------------------\
+       \uc0\u21021 \u22987 \u21270 \u21855 \u21205 \
+    ------------------------------------------------------------- */\
+    // \uc0\u38568 \u27231 \u36984 \u19968 \u24373 \u29031 \u29255 \u38283 \u22987 \
+    currentPhotoIndex = Math.floor(Math.random() * LANDSCAPES.length);\
+    bgLayerA.style.backgroundImage = `url('$\{LANDSCAPES[currentPhotoIndex].url\}')`;\
+    photoTitle.textContent = LANDSCAPES[currentPhotoIndex].title;\
+\
+    // \uc0\u31435 \u21363 \u26356 \u26032 \u26178 \u37912 \u20006 \u38283 \u21855 \u27599 \u31186 \u25490 \u31243 \
+    updateClock();\
+    setInterval(updateClock, 1000);\
+    resetIdleTimer();\
+  </script>\
+</body>\
+</html>}

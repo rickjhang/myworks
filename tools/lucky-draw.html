@@ -1,0 +1,1574 @@
+{\rtf1\ansi\ansicpg950\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset136 PingFangTC-Regular;\f2\fnil\fcharset0 AppleColorEmoji;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh16380\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="zh-TW">\
+<head>\
+  <meta charset="UTF-8" />\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\
+  <title>
+\f1 \'a4\'6a\'bc\'d6\'b3\'7a\'a6\'6e\'b9\'42\'b5\'6f\'b0\'5d\'be\'f7
+\f0  
+\f2 \uc0\u55356 \u57266 
+\f0  Lucky Lotto Popper</title>\
+  <!-- Tailwind CSS CDN -->\
+  <script src="https://cdn.tailwindcss.com"></script>\
+  <script>\
+    tailwind.config = \{\
+      theme: \{\
+        extend: \{\
+          colors: \{\
+            'fortune-gold': '#FFD700',\
+            'fortune-red': '#FF3366',\
+            'fortune-purple': '#7B2CBF',\
+            'retro-dark': '#0d0f18',\
+            'tube-bg': '#16192b'\
+          \},\
+          fontFamily: \{\
+            sans: ['"Fredoka"', '"Noto Sans TC"', 'system-ui', 'sans-serif'],\
+            mono: ['"JetBrains Mono"', 'monospace']\
+          \},\
+          animation: \{\
+            'bounce-gentle': 'bounceGentle 2s infinite ease-in-out',\
+            'spin-slow': 'spin 12s linear infinite',\
+            'pulse-glow': 'pulseGlow 1.5s ease-in-out infinite alternate',\
+          \},\
+          keyframes: \{\
+            bounceGentle: \{\
+              '0%, 100%': \{ transform: 'translateY(0)' \},\
+              '50%': \{ transform: 'translateY(-6px)' \}\
+            \},\
+            pulseGlow: \{\
+              '0%': \{ filter: 'drop-shadow(0 0 5px rgba(255,215,0,0.4))' \},\
+              '100%': \{ filter: 'drop-shadow(0 0 18px rgba(255,51,102,0.8))' \}\
+            \}\
+          \}\
+        \}\
+      \}\
+    \};\
+  </script>\
+  <!-- Google Fonts: Fredoka & Noto Sans TC for bubbly, playful gaming vibe -->\
+  <link rel="preconnect" href="https://fonts.googleapis.com">\
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+TC:wght@400;700;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">\
+  <style>\
+    body \{\
+      background: radial-gradient(circle at 50% 20%, #1e1338 0%, #0c0817 65%, #05040a 100%);\
+      font-family: 'Fredoka', 'Noto Sans TC', sans-serif;\
+      overflow-x: hidden;\
+      touch-action: manipulation;\
+    \}\
+\
+    /* 
+\f1 \'b7\'6e\'af\'5d\'be\'f7\'b2\'79\'c5\'e9\'bd\'e8\'b7\'50
+\f0  */\
+    .lotto-ball \{\
+      display: inline-flex;\
+      align-items: center;\
+      justify-content: center;\
+      border-radius: 9999px;\
+      font-family: 'JetBrains Mono', monospace;\
+      font-weight: 900;\
+      box-shadow: inset -4px -5px 8px rgba(0, 0, 0, 0.45), inset 3px 4px 6px rgba(255, 255, 255, 0.8), 0 6px 12px rgba(0, 0, 0, 0.35);\
+      position: relative;\
+      user-select: none;\
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);\
+    \}\
+    .lotto-ball::after \{\
+      content: '';\
+      position: absolute;\
+      top: 15%;\
+      left: 20%;\
+      width: 30%;\
+      height: 25%;\
+      background: rgba(255, 255, 255, 0.6);\
+      border-radius: 50%;\
+      filter: blur(1px);\
+    \}\
+\
+    /* 
+\f1 \'b2\'79\'c3\'43\'a6\'e2\'a8\'cc\'b0\'cf\'b6\'a1\'b3\'5d\'a9\'77
+\f0  */\
+    .ball-tier-1 \{ background: radial-gradient(circle at 35% 35%, #ff7b90, #e60039); color: #fff; \}  /* 01-10 
+\f1 \'ac\'f5
+\f0  */\
+    .ball-tier-2 \{ background: radial-gradient(circle at 35% 35%, #ffd269, #ff8c00); color: #431407; \} /* 11-20 
+\f1 \'bc\'e1\'be\'ef
+\f0  */\
+    .ball-tier-3 \{ background: radial-gradient(circle at 35% 35%, #ffee80, #eab308); color: #422006; \} /* 21-30 
+\f1 \'aa\'f7\'b6\'c0
+\f0  */\
+    .ball-tier-4 \{ background: radial-gradient(circle at 35% 35%, #6ee7b7, #059669); color: #fff; \}  /* 31-40 
+\f1 \'ba\'d1\'ba\'f1
+\f0  */\
+    .ball-tier-5 \{ background: radial-gradient(circle at 35% 35%, #93c5fd, #2563eb); color: #fff; \}  /* 41-49 
+\f1 \'c4\'5f\'c2\'c5
+\f0  */\
+    .ball-special \{ background: radial-gradient(circle at 35% 35%, #e879f9, #9333ea); color: #fff; box-shadow: inset -4px -5px 8px rgba(0,0,0,0.5), inset 3px 4px 6px rgba(255,255,255,0.9), 0 0 16px rgba(168, 85, 247, 0.8); \}\
+\
+    /* 
+\f1 \'ba\'75\'b5\'a9\'ac\'c1\'bc\'fe\'bd\'e8\'b7\'50
+\f0  */\
+    .drum-glass \{\
+      background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.12) 0%, rgba(20, 24, 45, 0.7) 70%, rgba(10, 12, 25, 0.95) 100%);\
+      box-shadow: inset 0 0 35px rgba(255, 215, 0, 0.25), inset 0 0 15px rgba(255, 51, 102, 0.3), 0 15px 35px rgba(0, 0, 0, 0.6);\
+      backdrop-filter: blur(6px);\
+      border: 3px solid rgba(255, 215, 0, 0.35);\
+    \}\
+\
+    /* 
+\f1 \'b4\'5f\'a5\'6a\'a5\'df\'c5\'e9\'ab\'f6\'b6\'73
+\f0  */\
+    .arcade-btn \{\
+      position: relative;\
+      transition: all 0.1s ease;\
+      box-shadow: 0 8px 0 #9f1239, 0 12px 20px rgba(0,0,0,0.6);\
+    \}\
+    .arcade-btn:active \{\
+      top: 6px;\
+      box-shadow: 0 2px 0 #9f1239, 0 4px 8px rgba(0,0,0,0.6);\
+    \}\
+\
+    .retro-ticket \{\
+      background: repeating-linear-gradient(#fdfbf7, #fdfbf7 28px, #f3ede2 28px, #f3ede2 29px);\
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px #d6cbb8 inset;\
+    \}\
+\
+    /* 
+\f1 \'bf\'f7\'be\'a6\'c3\'e4\'c3\'e4
+\f0  (CSS Ticket Jagged edge) */\
+    .ticket-edge-bottom \{\
+      background: radial-gradient(circle, transparent 6px, #fdfbf7 7px);\
+      background-size: 18px 20px;\
+      background-position: bottom;\
+    \}\
+\
+    /* 
+\f1 \'a6\'db\'ad\'71\'b1\'b2\'b6\'62
+\f0  */\
+    ::-webkit-scrollbar \{ width: 6px; \}\
+    ::-webkit-scrollbar-track \{ background: rgba(0, 0, 0, 0.2); border-radius: 4px; \}\
+    ::-webkit-scrollbar-thumb \{ background: rgba(255, 215, 0, 0.3); border-radius: 4px; \}\
+    ::-webkit-scrollbar-thumb:hover \{ background: rgba(255, 215, 0, 0.6); \}\
+  </style>\
+</head>\
+<body class="min-h-screen text-slate-100 flex flex-col items-center justify-between p-3 sm:p-6 select-none">\
+\
+  <!-- 
+\f1 \'b3\'bb\'b3\'a1\'ac\'af\'b1\'6d
+\f0  Title -->\
+  <header class="w-full max-w-4xl text-center pt-2 pb-3">\
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/30 text-yellow-300 text-xs sm:text-sm font-bold tracking-wider mb-2 animate-bounce-gentle">\
+      <span>
+\f2 \uc0\u10024 
+\f0  
+\f1 \'b0\'5d\'af\'ab\'b7\'dd\'b6\'7d\'a5\'dc\'a1\'45\'af\'ac\'b1\'7a\'a4\'b5\'b1\'df\'c0\'59\'bc\'fa\'bf\'57\'b1\'6f
+\f0  
+\f2 \uc0\u10024 
+\f0 </span>\
+    </div>\
+    <div class="flex items-center justify-center gap-3">\
+      <span class="text-3xl sm:text-4xl animate-bounce">
+\f2 \uc0\u55356 \u57264 
+\f0 </span>\
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-400 to-amber-200 drop-shadow-[0_4px_12px_rgba(255,215,0,0.3)]">\
+        
+\f1 \'a4\'6a\'bc\'d6\'b3\'7a
+\f0  
+\f1 \'bc\'c9\'b4\'49\'bf\'ef\'b8\'b9\'be\'f7
+\f0 \
+      </h1>\
+      <span class="text-3xl sm:text-4xl animate-bounce" style="animation-delay: 0.2s">
+\f2 \uc0\u55358 \u56807 
+\f0 </span>\
+    </div>\
+    <p class="text-slate-400 text-xs sm:text-sm mt-1">\
+      
+\f1 \'a5\'78\'c6\'57\'b1\'6d\'a8\'e9\'b3\'57\'ab\'68\'a1\'47
+\f0 49 
+\f1 \'c1\'fb\'b8\'b9\'bd\'58\'c0\'48\'be\'f7\'bf\'ef
+\f0  6 
+\f1 \'c1\'fb\'a5\'bf\'bd\'58
+\f0  
+\f1 \'a1\'cf
+\f0  1 
+\f1 \'c1\'fb\'a5\'5b\'bd\'58\'af\'53\'a7\'4f\'b8\'b9
+\f0 \
+    </p>\
+  </header>\
+\
+  <!-- 
+\f1 \'a5\'44\'bb\'52\'a5\'78
+\f0  Container -->\
+  <main class="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto items-start">\
+    \
+    <!-- 
+\f1 \'a5\'aa\'b0\'bc\'a1\'fe\'a4\'57\'a4\'e8\'a1\'47
+\f0 3D 
+\f1 \'aa\'ab\'b2\'7a\'b7\'6e\'af\'5d\'ba\'75\'b5\'a9\'bb\'50\'b6\'7d\'bc\'fa\'a5\'78
+\f0  (7 Cols) -->\
+    <section class="lg:col-span-7 flex flex-col items-center">\
+      \
+      <!-- 
+\f1 \'b7\'6e\'bc\'fa\'be\'f7\'a5\'44\'a5\'7e\'b4\'df
+\f0  -->\
+      <div class="relative w-full max-w-[420px] aspect-square rounded-[40px] drum-glass p-3 flex flex-col items-center justify-center overflow-hidden border-4 border-yellow-500/40 shadow-2xl">\
+        \
+        <!-- 
+\f1 \'b3\'bb\'b3\'a1\'c2\'e0\'bd\'4c\'b8\'cb\'b9\'a2\'c0\'f4
+\f0  -->\
+        <div class="absolute -top-10 w-44 h-14 bg-gradient-to-b from-yellow-500 to-amber-700 rounded-b-3xl border-2 border-yellow-200/50 shadow-lg flex items-end justify-center pb-1">\
+          <div class="w-6 h-6 rounded-full bg-red-600 border-2 border-yellow-300 animate-ping"></div>\
+        </div>\
+\
+        <!-- 
+\f1 \'b7\'6e\'af\'5d\'b0\'ca\'ba\'41\'b5\'65\'a5\'ac
+\f0  (Canvas) -->\
+        <canvas id="drumCanvas" class="w-full h-full rounded-[30px]"></canvas>\
+\
+        <!-- 
+\f1 \'ac\'c1\'bc\'fe\'b8\'6e\'a4\'cf\'a5\'fa\'c5\'7c\'bc\'68
+\f0  -->\
+        <div class="pointer-events-none absolute inset-0 rounded-[38px] bg-gradient-to-tr from-transparent via-white/5 to-white/20"></div>\
+        <div class="pointer-events-none absolute top-4 left-6 w-24 h-12 bg-white/10 rounded-full blur-md -rotate-45"></div>\
+\
+        <!-- 
+\f1 \'b6\'7d\'bc\'fa\'b7\'ed\'ab\'65\'af\'42\'b0\'ca\'b4\'a3\'a5\'dc
+\f0  -->\
+        <div id="drawStatusBadge" class="absolute bottom-4 px-4 py-1 rounded-full bg-black/60 border border-yellow-400/40 text-yellow-300 text-xs font-semibold backdrop-blur-md flex items-center gap-2">\
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>\
+          <span id="drawStatusText">
+\f1 \'b7\'6e\'bc\'fa\'be\'f7\'a4\'77\'a5\'52\'af\'e0\'a1\'45\'c0\'48\'ae\'c9\'b7\'c7\'b3\'c6\'a5\'58\'b2\'79
+\f0 </span>\
+        </div>\
+      </div>\
+\
+      <!-- 
+\f1 \'a5\'58\'b2\'79\'b7\'c6\'b9\'44\'ae\'69\'a5\'dc\'b0\'cf
+\f0  -->\
+      <div class="w-full max-w-[420px] mt-4 bg-slate-900/80 backdrop-blur-md border border-slate-700/60 rounded-2xl p-3 shadow-lg flex flex-col items-center">\
+        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between w-full px-2">\
+          <span>
+\f2 \uc0\u55356 \u57263 
+\f0  
+\f1 \'a5\'bb\'a6\'b8\'a5\'58\'b2\'79\'ad\'79\'b9\'44
+\f0 </span>\
+          <span id="ballCountTracker" class="text-yellow-400 font-mono">0 / 7 
+\f1 \'c1\'fb
+\f0 </span>\
+        </div>\
+        \
+        <!-- 
+\f1 \'a7\'59\'ae\'c9\'a5\'58\'b2\'79\'aa\'ba\'bc\'d1\'b9\'44
+\f0  -->\
+        <div id="trayContainer" class="flex items-center justify-center gap-1.5 sm:gap-2 min-h-[58px] w-full px-1">\
+          <!-- 6
+\f1 \'a5\'bf\'bd\'58
+\f0  + 1
+\f1 \'af\'53\'a7\'4f\'b8\'b9\'bc\'d1\'a6\'ec
+\f0  -->\
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed border-slate-700 flex items-center justify-center text-slate-600 text-xs font-mono">1</div>\
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed border-slate-700 flex items-center justify-center text-slate-600 text-xs font-mono">2</div>\
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed border-slate-700 flex items-center justify-center text-slate-600 text-xs font-mono">3</div>\
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed border-slate-700 flex items-center justify-center text-slate-600 text-xs font-mono">4</div>\
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed border-slate-700 flex items-center justify-center text-slate-600 text-xs font-mono">5</div>\
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed border-slate-700 flex items-center justify-center text-slate-600 text-xs font-mono">6</div>\
+          <span class="text-purple-400 text-lg font-bold px-0.5">+</span>\
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed border-purple-800/60 flex items-center justify-center text-purple-400 text-xs font-mono">
+\f1 \'af\'53
+\f0 </div>\
+        </div>\
+      </div>\
+\
+      <!-- 
+\f1 \'a5\'44\'b5\'6f\'ae\'67\'b1\'b1\'a8\'ee\'a4\'6a\'ab\'f6\'b6\'73
+\f0  -->\
+      <div class="w-full max-w-[420px] mt-4 flex items-center gap-3">\
+        <button id="drawBtn" class="arcade-btn flex-1 py-4 bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 rounded-2xl text-white font-black text-xl tracking-wider shadow-lg hover:brightness-110 active:brightness-95 flex items-center justify-center gap-2 border-t border-rose-300">\
+          <span class="text-2xl">
+\f2 \uc0\u55357 \u56613 
+\f0 </span>\
+          <span>
+\f1 \'b7\'6e\'a5\'58\'a9\'af\'b9\'42\'b8\'b9\'bd\'58\'a1\'49
+\f0 </span>\
+        </button>\
+\
+        <!-- 
+\f1 \'a7\'d6\'b3\'74\'a5\'5d\'b5\'50
+\f0 /
+\f1 \'aa\'60\'bc\'c6\'bf\'ef\'b3\'e6
+\f0  -->\
+        <div class="flex flex-col gap-1">\
+          <button id="batch5Btn" title="
+\f1 \'b3\'73\'b7\'6e
+\f0  5 
+\f1 \'aa\'60\'a1\'5d\'a4\'40\'be\'e3\'b1\'69\'a4\'6a\'bc\'d6\'b3\'7a\'a1\'5e
+\f0 " class="px-3 py-2 bg-purple-700/80 hover:bg-purple-600 border border-purple-400/40 rounded-xl text-xs font-bold text-yellow-300 flex items-center gap-1 transition">\
+            <span>
+\f2 \uc0\u9889 
+\f0  
+\f1 \'b3\'73\'a9\'e2
+\f0  5 
+\f1 \'aa\'60
+\f0 </span>\
+          </button>\
+          <button id="soundToggleBtn" title="
+\f1 \'c1\'6e\'ad\'b5\'b6\'7d\'c3\'f6
+\f0 " class="px-3 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl text-xs text-slate-300 flex items-center justify-center gap-1 transition">\
+            <span id="soundIcon">
+\f2 \uc0\u55357 \u56586 
+\f0 </span> <span>
+\f1 \'ad\'b5\'ae\'c4\'b6\'7d
+\f0 </span>\
+          </button>\
+        </div>\
+      </div>\
+\
+    </section>\
+\
+    <!-- 
+\f1 \'a5\'6b\'b0\'bc\'a1\'fe\'a4\'55\'a4\'e8\'a1\'47\'a9\'af\'b9\'42\'bf\'ef\'b8\'b9\'b5\'b2\'aa\'47\'ad\'b1\'aa\'4f\'bb\'50\'bd\'ec\'a8\'fd\'a6\'6e\'b9\'42\'c2\'6f\'c3\'e8
+\f0  (5 Cols) -->\
+    <section class="lg:col-span-5 flex flex-col gap-4">\
+      \
+      <!-- 
+\f1 \'b5\'a6\'b2\'a4\'bb\'50\'a6\'db\'ad\'71\'af\'ab\'a9\'fa\'a5\'5b\'ab\'f9\'be\'b9
+\f0  (
+\f1 \'a5\'c8\'be\'c7\'a5\'5b\'c5\'76
+\f0 ) -->\
+      <div class="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-4 shadow-xl">\
+        <div class="flex items-center justify-between mb-2">\
+          <h3 class="font-bold text-sm text-yellow-300 flex items-center gap-1.5">\
+            <span>
+\f2 \uc0\u55356 \u57227 
+\f0 </span>\
+            <span>
+\f1 \'b6\'7d\'b9\'42\'a5\'c8\'be\'c7\'bf\'ef\'b8\'b9\'bc\'d2\'a6\'a1
+\f0 </span>\
+          </h3>\
+          <span class="text-[10px] text-slate-400">
+\f1 \'ab\'c8\'bb\'73\'a4\'c6\'c0\'48\'be\'f7\'c5\'76\'ad\'ab
+\f0 </span>\
+        </div>\
+\
+        <div class="grid grid-cols-2 gap-2 text-xs">\
+          <!-- 
+\f1 \'bc\'d2\'a6\'a1
+\f0  1: 
+\f1 \'a7\'b9\'a5\'fe\'c0\'48\'be\'f7
+\f0  -->\
+          <label class="cursor-pointer flex items-center gap-2 p-2 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-yellow-500/50 transition">\
+            <input type="radio" name="pickStrategy" value="pure" checked class="text-yellow-500 focus:ring-0 accent-yellow-400">\
+            <div>\
+              <div class="font-bold text-slate-200">
+\f1 \'a4\'d1\'b7\'4e\'af\'c2\'c0\'48\'be\'f7
+\f0 </div>\
+              <div class="text-[10px] text-slate-400">
+\f1 \'a4\'bd\'a5\'ad\'a4\'bd\'a5\'bf\'b5\'4c\'a8\'70\'b7\'50\'c0\'b3
+\f0 </div>\
+            </div>\
+          </label>\
+\
+          <!-- 
+\f1 \'bc\'d2\'a6\'a1
+\f0  2: 
+\f1 \'b3\'b1\'b6\'a7\'bd\'d5\'a9\'4d
+\f0  (
+\f1 \'a9\'5f\'b0\'b8\'a5\'ad\'bf\'c5
+\f0  3:3 / 4:2) -->\
+          <label class="cursor-pointer flex items-center gap-2 p-2 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-yellow-500/50 transition">\
+            <input type="radio" name="pickStrategy" value="balanced" class="text-yellow-500 focus:ring-0 accent-yellow-400">\
+            <div>\
+              <div class="font-bold text-slate-200">
+\f1 \'b3\'b1\'b6\'a7\'a5\'ad\'bf\'c5\'ac\'79
+\f0 </div>\
+              <div class="text-[10px] text-slate-400">
+\f1 \'a9\'5f\'bc\'c6\'b0\'b8\'bc\'c6\'a7\'a1\'bf\'c5\'a4\'c0\'b0\'74
+\f0 </div>\
+            </div>\
+          </label>\
+\
+          <!-- 
+\f1 \'bc\'d2\'a6\'a1
+\f0  3: 
+\f1 \'a7\'4e\'bc\'f6\'aa\'f9\'b2\'56\'a6\'58
+\f0  -->\
+          <label class="cursor-pointer flex items-center gap-2 p-2 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-yellow-500/50 transition">\
+            <input type="radio" name="pickStrategy" value="popular" class="text-yellow-500 focus:ring-0 accent-yellow-400">\
+            <div>\
+              <div class="font-bold text-slate-200">
+\f1 \'b4\'49\'b6\'51\'b9\'47\'a4\'48\'b2\'d5
+\f0 </div>\
+              <div class="text-[10px] text-slate-400">
+\f1 \'b0\'be\'a6\'56\'a4\'6a\'b2\'b3\'bc\'f6\'aa\'f9\'a6\'4e\'a7\'51\'bc\'c6
+\f0 </div>\
+            </div>\
+          </label>\
+\
+          <!-- 
+\f1 \'bc\'d2\'a6\'a1
+\f0  4: 
+\f1 \'a5\'cd\'a8\'b0\'a9\'af\'b9\'42\'c2\'ea\'a9\'77
+\f0  -->\
+          <label class="cursor-pointer flex items-center gap-2 p-2 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-yellow-500/50 transition">\
+            <input type="radio" name="pickStrategy" value="customLucky" class="text-yellow-500 focus:ring-0 accent-yellow-400">\
+            <div>\
+              <div class="font-bold text-slate-200">
+\f1 \'a5\'5d\'a7\'74\'a5\'bb\'a9\'52\'a9\'af\'b9\'42\'b8\'b9
+\f0 </div>\
+              <div class="text-[10px] text-slate-400">
+\f1 \'a5\'b2\'a4\'4a\'b1\'7a\'b0\'be\'a6\'6e\'aa\'ba\'c6\'46\'bc\'c6
+\f0 </div>\
+            </div>\
+          </label>\
+        </div>\
+\
+        <!-- 
+\f1 \'a9\'af\'b9\'42\'b8\'b9\'bd\'58\'bf\'e9\'a4\'4a
+\f0  (
+\f1 \'b7\'ed\'bf\'ef\'be\'dc\'a9\'af\'b9\'42\'bc\'d2\'a6\'a1\'ae\'c9\'ae\'69\'b6\'7d
+\f0 ) -->\
+        <div id="luckyInputsRow" class="mt-2.5 pt-2.5 border-t border-slate-800 flex items-center gap-2 text-xs">\
+          <span class="text-yellow-400 font-semibold whitespace-nowrap">
+\f2 \uc0\u55356 \u57119 
+\f0  
+\f1 \'ab\'fc\'a9\'77\'c6\'46\'bc\'c6\'a1\'47
+\f0 </span>\
+          <input type="number" id="luckyNum1" min="1" max="49" placeholder="
+\f1 \'a8\'d2
+\f0 : 8" class="w-14 bg-slate-800 border border-slate-600 rounded-lg px-2 py-1 text-center text-yellow-300 font-bold focus:border-yellow-400 outline-none">\
+          <input type="number" id="luckyNum2" min="1" max="49" placeholder="
+\f1 \'a8\'d2
+\f0 : 16" class="w-14 bg-slate-800 border border-slate-600 rounded-lg px-2 py-1 text-center text-yellow-300 font-bold focus:border-yellow-400 outline-none">\
+          <span class="text-[11px] text-slate-400">(1~49
+\f1 \'a1\'41\'a6\'dc\'a6\'68\'a8\'e2\'b2\'d5
+\f0 )</span>\
+        </div>\
+      </div>\
+\
+      <!-- 
+\f1 \'bc\'d2\'c0\'c0\'b1\'6d\'a8\'e9\'bc\'f6\'c4\'cb\'c4\'cb\'a5\'58\'af\'c8\'b0\'cf
+\f0  (Ticket Result Card) -->\
+      <div class="relative retro-ticket text-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl flex flex-col justify-between border-2 border-amber-200/50 overflow-hidden">\
+        \
+        <!-- 
+\f1 \'b3\'bb\'b3\'a1\'a8\'be\'b0\'b0\'b1\'f8\'bd\'58\'bb\'50\'b1\'6d\'a8\'e9
+\f0  Logo -->\
+        <div class="flex items-center justify-between border-b-2 border-dashed border-stone-300 pb-3">\
+          <div class="flex items-center gap-2">\
+            <div class="w-7 h-7 rounded-lg bg-red-600 text-white font-black flex items-center justify-center text-sm shadow">
+\f1 \'bc\'d6
+\f0 </div>\
+            <div>\
+              <div class="font-black text-sm tracking-wide text-slate-900 leading-tight">TAIWAN LOTTO 6/49</div>\
+              <div class="text-[10px] text-stone-500 font-mono" id="ticketDrawDate">
+\f1 \'b2\'c4
+\f0  115000088 
+\f1 \'b4\'c1\'a1\'45\'b9\'71\'b8\'a3\'a7\'d6\'bf\'ef
+\f0 </div>\
+            </div>\
+          </div>\
+          <div class="text-right">\
+            <span class="inline-block bg-yellow-400/30 border border-yellow-600/40 text-yellow-900 text-[10px] font-bold px-1.5 py-0.5 rounded">
+\f1 \'c0\'59\'bc\'fa\'b2\'d6\'bf\'6e
+\f0  NT$ 1.8 
+\f1 \'bb\'f5
+\f0 </span>\
+          </div>\
+        </div>\
+\
+        <!-- 
+\f1 \'b8\'b9\'bd\'58\'b2\'4d\'b3\'e6\'ae\'69\'a5\'dc\'a6\'43
+\f0  (
+\f1 \'a5\'69\'ae\'65\'af\'c7
+\f0  1~5 
+\f1 \'aa\'60
+\f0 ) -->\
+        <div id="ticketRowsList" class="my-3 space-y-2.5 max-h-[260px] overflow-y-auto pr-1">\
+          <!-- 
+\f1 \'b9\'77\'b3\'5d\'b2\'c4\'a4\'40\'aa\'60\'a6\'fb\'a6\'ec
+\f0  -->\
+          <div class="flex items-center justify-between text-xs py-1 px-1 bg-amber-50/70 rounded-lg border border-amber-200/60 font-mono">\
+            <div class="flex items-center gap-1.5 font-bold text-amber-900">\
+              <span class="bg-amber-200 text-amber-900 px-1 rounded">A</span>\
+              <span class="text-stone-400 text-[11px]">
+\f1 \'a9\'7c\'a5\'bc\'b7\'6e\'b8\'b9\'a1\'41\'bd\'d0\'ab\'f6\'a4\'55\'b6\'7d\'bc\'fa\'ab\'f6\'b6\'73
+\f0 </span>\
+            </div>\
+          </div>\
+        </div>\
+\
+        <!-- 
+\f1 \'a9\'b3\'b3\'a1\'b1\'f8\'bd\'58\'a1\'42\'b2\'ce\'ad\'70\'bb\'50\'be\'de\'a7\'40\'a4\'75\'a8\'e3
+\f0  -->\
+        <div class="pt-3 border-t-2 border-dashed border-stone-300 flex flex-col gap-2">\
+          \
+          <div class="flex items-center justify-between text-[11px] text-stone-600 font-mono">\
+            <span>
+\f1 \'a4\'55\'aa\'60\'aa\'f7\'c3\'42\'a1\'47
+\f0 <b id="totalBetAmount" class="text-red-600 font-bold text-sm">NT$ 0</b></span>\
+            <span id="luckyQuote" class="text-stone-500 italic">
+\f1 \'a1\'75\'b5\'bd\'a6\'e6\'bb\'45\'ba\'d6\'a1\'41\'b0\'5d\'b9\'42\'c0\'48\'a6\'e6\'a1\'76
+\f0 </span>\
+          </div>\
+\
+          <!-- 
+\f1 \'b1\'f8\'bd\'58\'b9\'cf\'ae\'d7
+\f0  -->\
+          <div class="w-full flex items-center justify-center py-1 opacity-80 overflow-hidden">\
+            <div class="font-mono text-[9px] tracking-[5px] text-stone-700 scale-y-150 select-none">\
+              ||| | |||| || | ||||| || ||| |||| | ||| || |||| ||| ||||\
+            </div>\
+          </div>\
+\
+          <!-- 
+\f1 \'bd\'c6\'bb\'73\'bb\'50\'be\'de\'a7\'40\'ab\'f6\'b6\'73
+\f0  -->\
+          <div class="flex items-center justify-between gap-2 mt-1">\
+            <button id="copyNumbersBtn" class="flex-1 py-1.5 bg-stone-800 hover:bg-stone-900 text-amber-300 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow">\
+              <span>
+\f2 \uc0\u55357 \u56523 
+\f0  
+\f1 \'bd\'c6\'bb\'73\'aa\'60\'b3\'e6\'b8\'b9\'bd\'58
+\f0 </span>\
+            </button>\
+            <button id="clearAllBtn" class="px-3 py-1.5 bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-xs rounded-lg transition">\
+              
+\f1 \'b2\'4d\'aa\'c5
+\f0 \
+            </button>\
+          </div>\
+        </div>\
+\
+        <!-- 
+\f1 \'b1\'6d\'a8\'e9\'a4\'55\'bd\'74\'a5\'b4\'a4\'d5\'be\'a6\'bc\'d1\'b3\'79\'a7\'ce
+\f0  -->\
+        <div class="absolute -bottom-2 left-0 right-0 h-4 ticket-edge-bottom opacity-90"></div>\
+      </div>\
+\
+    </section>\
+  </main>\
+\
+  <!-- 
+\f1 \'b4\'a3\'a5\'dc\'af\'42\'b0\'ca\'ae\'f0\'aa\'77
+\f0  (Toast Notification) -->\
+  <div id="toast" class="fixed bottom-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900/95 border border-yellow-400/60 text-yellow-300 px-4 py-2.5 rounded-2xl shadow-2xl flex items-center gap-2 text-xs sm:text-sm font-bold backdrop-blur-md">\
+    <span id="toastIcon">
+\f2 \uc0\u10024 
+\f0 </span>\
+    <span id="toastMsg">
+\f1 \'a4\'77\'bd\'c6\'bb\'73\'a8\'ec\'b0\'c5\'b6\'4b\'c3\'af
+\f0 </span>\
+  </div>\
+\
+  <!-- 
+\f1 \'ad\'b6\'a7\'c0\'bb\'a1\'a9\'fa\'bb\'50\'b0\'b7\'b1\'64\'a7\'eb\'aa\'60\'c4\'b5\'bb\'79
+\f0  -->\
+  <footer class="w-full max-w-4xl text-center py-2 text-[11px] text-slate-500">\
+    <p>
+\f2 \uc0\u55357 \u56481 
+\f0  
+\f1 \'a5\'bb\'a4\'75\'a8\'e3\'ac\'b0\'c0\'48\'be\'f7\'bf\'ef\'b8\'b9\'bb\'b2\'a7\'55\'bd\'ec\'a8\'fd\'b5\'7b\'a6\'a1\'a1\'41\'a4\'a3\'ab\'4f\'c3\'d2\'a4\'a4\'bc\'fa\'a1\'43\'a5\'bc\'ba\'a1\'a4\'51\'a4\'4b\'b7\'b3\'a4\'a3\'b1\'6f\'c1\'ca\'b6\'52\'a9\'ce\'a7\'49\'bb\'e2\'b1\'6d\'a8\'e9\'a1\'41\'bd\'d0\'b2\'7a\'a9\'ca\'a7\'eb\'aa\'60\'a1\'42\'a4\'70\'bd\'e4\'a9\'c9\'b1\'a1\'a1\'49
+\f0 </p>\
+  </footer>\
+\
+  <!-- 
+\f1 \'ae\'d6\'a4\'df
+\f0  JavaScript
+\f1 \'a1\'47\'aa\'ab\'b2\'7a\'b0\'ca\'b5\'65\'a1\'42\'bf\'ef\'b8\'b9\'ba\'74\'ba\'e2\'aa\'6b\'bb\'50\'ad\'b5\'ae\'c4\'a8\'74\'b2\'ce
+\f0  -->\
+  <script>\
+    // ==========================================\
+    // 1. Web Audio 
+\f1 \'ad\'b5\'ae\'c4\'a6\'58\'a6\'a8\'be\'b9
+\f0  (
+\f1 \'a7\'4b\'a5\'7e\'b3\'a1\'ad\'b5\'b0\'54\'c0\'c9
+\f0 )\
+    // ==========================================\
+    class SoundFX \{\
+      constructor() \{\
+        this.ctx = null;\
+        this.enabled = true;\
+      \}\
+\
+      init() \{\
+        if (!this.ctx) \{\
+          const AudioContext = window.AudioContext || window.webkitAudioContext;\
+          this.ctx = new AudioContext();\
+        \}\
+        if (this.ctx.state === 'suspended') \{\
+          this.ctx.resume();\
+        \}\
+      \}\
+\
+      // 
+\f1 \'bc\'75\'af\'5d\'b8\'49\'bc\'b2\'b8\'49\'bc\'b2\'c1\'6e
+\f0  (
+\f1 \'b5\'75\'ab\'50\'a4\'ec\'c0\'59
+\f0 /
+\f1 \'b6\'ec\'bd\'a6\'ba\'56\'c0\'bb\'b7\'50
+\f0 )\
+      popBall() \{\
+        if (!this.enabled) return;\
+        this.init();\
+        const osc = this.ctx.createOscillator();\
+        const gain = this.ctx.createGain();\
+        osc.type = 'triangle';\
+        \
+        // 
+\f1 \'c0\'48\'be\'f7\'ad\'b5\'b0\'aa\'bc\'d2\'c0\'c0\'a4\'a3\'a6\'50\'c1\'fb\'b2\'79\'b8\'49\'bc\'b2
+\f0 \
+        const freq = 450 + Math.random() * 400;\
+        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);\
+        osc.frequency.exponentialRampToValueAtTime(120, this.ctx.currentTime + 0.08);\
+\
+        gain.gain.setValueAtTime(0.25, this.ctx.currentTime);\
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.08);\
+\
+        osc.connect(gain);\
+        gain.connect(this.ctx.destination);\
+        osc.start();\
+        osc.stop(this.ctx.currentTime + 0.08);\
+      \}\
+\
+      // 
+\f1 \'a5\'58\'b2\'79\'a4\'4a\'ad\'79\'c3\'f2\'aa\'ba\'a4\'40\'c1\'6e
+\f0  (
+\f1 \'b3\'d3\'a7\'51\'b4\'a3\'a5\'dc\'a9\'4d\'a9\'b6
+\f0 )\
+      hitTarget(isSpecial = false) \{\
+        if (!this.enabled) return;\
+        this.init();\
+        const now = this.ctx.currentTime;\
+        const baseFreq = isSpecial ? 587.33 : 440; // D5 
+\f1 \'a9\'ce
+\f0  A4\
+\
+        [baseFreq, baseFreq * 1.25, baseFreq * 1.5].forEach((f, idx) => \{\
+          const osc = this.ctx.createOscillator();\
+          const gain = this.ctx.createGain();\
+          osc.type = 'sine';\
+          osc.frequency.setValueAtTime(f, now + idx * 0.04);\
+\
+          gain.gain.setValueAtTime(0.2, now + idx * 0.04);\
+          gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.04 + 0.35);\
+\
+          osc.connect(gain);\
+          gain.connect(this.ctx.destination);\
+          osc.start(now + idx * 0.04);\
+          osc.stop(now + idx * 0.04 + 0.35);\
+        \});\
+      \}\
+\
+      // 
+\f1 \'b1\'6d\'a8\'e9\'a6\'4c\'a5\'58
+\f0 /
+\f1 \'a5\'fe\'b3\'a1\'a7\'b9\'a6\'a8\'c5\'77\'a9\'49\'ad\'b5
+\f0 \
+      fanfare() \{\
+        if (!this.enabled) return;\
+        this.init();\
+        const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6\
+        notes.forEach((freq, idx) => \{\
+          const osc = this.ctx.createOscillator();\
+          const gain = this.ctx.createGain();\
+          const t = this.ctx.currentTime + idx * 0.09;\
+          osc.type = 'triangle';\
+          osc.frequency.setValueAtTime(freq, t);\
+          gain.gain.setValueAtTime(0.25, t);\
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4);\
+\
+          osc.connect(gain);\
+          gain.connect(this.ctx.destination);\
+          osc.start(t);\
+          osc.stop(t + 0.45);\
+        \});\
+      \}\
+    \}\
+\
+    const sound = new SoundFX();\
+\
+    // ==========================================\
+    // 2. 
+\f1 \'b7\'6e\'af\'5d\'be\'f7
+\f0  2D 
+\f1 \'aa\'ab\'b2\'7a\'bc\'d2\'c0\'c0
+\f0  (Canvas Particle Engine)\
+    // ==========================================\
+    const canvas = document.getElementById('drumCanvas');\
+    const ctx = canvas.getContext('2d');\
+    let balls = [];\
+    let isDrawing = false;\
+    let drumSpeedMultiplier = 1.0;\
+    let animFrameId = null;\
+\
+    // 
+\f1 \'b2\'79\'c5\'e9\'a6\'e2\'a8\'74\'b3\'5d\'a9\'77
+\f0  (
+\f1 \'a8\'cc\'b7\'d3\'b8\'b9\'bd\'58
+\f0  1-49)\
+    function getBallColor(num) \{\
+      if (num <= 10) return \{ main: '#e60039', light: '#ff7b90', text: '#ffffff' \};\
+      if (num <= 20) return \{ main: '#ea580c', light: '#fed7aa', text: '#ffffff' \};\
+      if (num <= 30) return \{ main: '#ca8a04', light: '#fef08a', text: '#422006' \};\
+      if (num <= 40) return \{ main: '#059669', light: '#a7f3d0', text: '#ffffff' \};\
+      return \{ main: '#2563eb', light: '#bfdbfe', text: '#ffffff' \};\
+    \}\
+\
+    class DrumBall \{\
+      constructor(number, containerRadius) \{\
+        this.number = number;\
+        this.radius = 12.5; // 
+\f1 \'b2\'79\'c5\'e9\'a5\'62\'ae\'7c
+\f0 \
+        // 
+\f1 \'c0\'48\'be\'f7\'a6\'62\'b6\'ea\'a7\'ce\'b9\'aa\'a4\'ba\'a5\'58\'a5\'cd
+\f0 \
+        const angle = Math.random() * Math.PI * 2;\
+        const dist = Math.random() * (containerRadius - this.radius - 10);\
+        this.x = Math.cos(angle) * dist;\
+        this.y = Math.sin(angle) * dist;\
+        this.vx = (Math.random() - 0.5) * 4;\
+        this.vy = (Math.random() - 0.5) * 4;\
+        this.colors = getBallColor(number);\
+      \}\
+\
+      update(containerRadius, speedMul) \{\
+        // 
+\f1 \'ad\'b7\'a4\'4f\'ae\'f0\'ac\'79\'a6\'56\'a4\'57\'b1\'c0\'b0\'ca\'bb\'50\'c0\'48\'be\'f7\'c2\'5a\'b0\'ca
+\f0 \
+        this.vy += 0.22; // 
+\f1 \'ad\'ab\'a4\'4f\'b7\'4c\'a4\'55\'a8\'49
+\f0 \
+        this.vx += (Math.random() - 0.5) * 1.5 * speedMul;\
+        this.vy += (Math.random() - 0.5) * 1.5 * speedMul;\
+\
+        // 
+\f1 \'a6\'70\'aa\'47\'a6\'62\'bc\'40\'af\'50\'b7\'6e\'bc\'fa\'a4\'a4\'a1\'41\'b5\'b9\'a4\'a9\'b1\'6a\'af\'50\'aa\'ba\'b1\'db\'c2\'e0\'c5\'cd\'b0\'ca\'ad\'b7\'a4\'4f
+\f0 \
+        if (speedMul > 1.2) \{\
+          const vortex = 0.4 * speedMul;\
+          this.vx += -this.y * 0.02 * vortex;\
+          this.vy += this.x * 0.02 * vortex;\
+          // 
+\f1 \'a9\'b3\'b3\'a1\'b0\'aa\'c0\'a3\'ae\'f0\'ac\'79\'bc\'51\'ae\'67
+\f0 \
+          if (this.y > containerRadius * 0.2) \{\
+            this.vy -= (0.8 + Math.random() * 1.2) * speedMul;\
+          \}\
+        \}\
+\
+        // 
+\f1 \'b3\'74\'ab\'d7\'a4\'57\'ad\'ad
+\f0 \
+        const maxV = 16 * speedMul;\
+        this.vx = Math.max(-maxV, Math.min(maxV, this.vx));\
+        this.vy = Math.max(-maxV, Math.min(maxV, this.vy));\
+\
+        this.x += this.vx;\
+        this.y += this.vy;\
+\
+        // 
+\f1 \'b6\'ea\'a7\'ce\'c3\'e4\'ac\'c9\'bc\'75\'a9\'ca\'b8\'49\'bc\'b2\'c0\'cb\'b4\'fa
+\f0 \
+        const distFromCenter = Math.hypot(this.x, this.y);\
+        const maxAllowed = containerRadius - this.radius - 2;\
+        if (distFromCenter > maxAllowed) \{\
+          const nx = this.x / distFromCenter;\
+          const ny = this.y / distFromCenter;\
+          // 
+\f1 \'b1\'4e\'b2\'79\'b1\'c0\'a6\'5e\'c3\'e4\'ac\'c9\'a4\'ba
+\f0 \
+          this.x = nx * maxAllowed;\
+          this.y = ny * maxAllowed;\
+          // 
+\f1 \'a4\'cf\'ae\'67\'b3\'74\'ab\'d7\'a6\'56\'b6\'71\'a8\'c3\'b1\'61\'a4\'4a\'bc\'75\'a9\'ca\'b0\'49\'b4\'ee
+\f0 \
+          const dot = this.vx * nx + this.vy * ny;\
+          this.vx = (this.vx - 2 * dot * nx) * 0.85;\
+          this.vy = (this.vy - 2 * dot * ny) * 0.85;\
+\
+          // 
+\f1 \'bc\'bd\'a9\'f1\'b7\'4c\'ae\'7a\'b8\'49\'bc\'b2\'a4\'cf\'f5\'58\'ad\'b5
+\f0 \
+          if (Math.random() < 0.04 && speedMul > 1.2) \{\
+            sound.popBall();\
+          \}\
+        \}\
+      \}\
+\
+      draw(context, centerX, centerY) \{\
+        const drawX = centerX + this.x;\
+        const drawY = centerY + this.y;\
+\
+        // 
+\f1 \'c3\'b8\'bb\'73\'b3\'b1\'bc\'76
+\f0 \
+        context.save();\
+        context.beginPath();\
+        context.arc(drawX + 1.5, drawY + 2, this.radius, 0, Math.PI * 2);\
+        context.fillStyle = 'rgba(0,0,0,0.3)';\
+        context.fill();\
+\
+        // 
+\f1 \'c3\'b8\'bb\'73\'b2\'79\'c5\'e9\'a5\'44\'c5\'e9\'ae\'7c\'a6\'56\'ba\'a5\'bc\'68
+\f0 \
+        const grad = context.createRadialGradient(\
+          drawX - this.radius * 0.3,\
+          drawY - this.radius * 0.35,\
+          this.radius * 0.15,\
+          drawX,\
+          drawY,\
+          this.radius\
+        );\
+        grad.addColorStop(0, this.colors.light);\
+        grad.addColorStop(1, this.colors.main);\
+\
+        context.beginPath();\
+        context.arc(drawX, drawY, this.radius, 0, Math.PI * 2);\
+        context.fillStyle = grad;\
+        context.fill();\
+\
+        // 
+\f1 \'b8\'b9\'bd\'58\'a5\'d5\'a9\'b3\'b7\'4c\'b6\'ea\'bd\'4c
+\f0 \
+        context.beginPath();\
+        context.arc(drawX, drawY, this.radius * 0.58, 0, Math.PI * 2);\
+        context.fillStyle = 'rgba(255, 255, 255, 0.9)';\
+        context.fill();\
+\
+        // 
+\f1 \'b8\'b9\'bd\'58\'a6\'72\'a7\'ce
+\f0 \
+        context.fillStyle = '#111827';\
+        context.font = 'bold 9px "JetBrains Mono", sans-serif';\
+        context.textAlign = 'center';\
+        context.textBaseline = 'middle';\
+        context.fillText(this.number < 10 ? '0' + this.number : this.number, drawX, drawY + 0.5);\
+\
+        // 
+\f1 \'b0\'aa\'a5\'fa\'a5\'fa\'c2\'49
+\f0 \
+        context.beginPath();\
+        context.arc(drawX - this.radius * 0.35, drawY - this.radius * 0.35, this.radius * 0.2, 0, Math.PI * 2);\
+        context.fillStyle = 'rgba(255, 255, 255, 0.65)';\
+        context.fill();\
+        context.restore();\
+      \}\
+    \}\
+\
+    // 
+\f1 \'aa\'ec\'a9\'6c\'a4\'c6\'b5\'65\'a5\'ac\'a4\'6a\'a4\'70\'bb\'50
+\f0  49 
+\f1 \'c1\'fb\'a4\'6a\'bc\'d6\'b3\'7a\'b2\'79
+\f0 \
+    function initDrum() \{\
+      const rect = canvas.getBoundingClientRect();\
+      const dpr = window.devicePixelRatio || 1;\
+      canvas.width = rect.width * dpr;\
+      canvas.height = rect.height * dpr;\
+      ctx.scale(dpr, dpr);\
+\
+      const radius = (rect.width / 2) - 10;\
+      balls = [];\
+      for (let i = 1; i <= 49; i++) \{\
+        balls.push(new DrumBall(i, radius));\
+      \}\
+    \}\
+\
+    // 
+\f1 \'aa\'ab\'b2\'7a\'b0\'ca\'b5\'65\'a5\'44\'b0\'6a\'b0\'e9
+\f0 \
+    function renderDrum() \{\
+      const rect = canvas.getBoundingClientRect();\
+      const centerX = rect.width / 2;\
+      const centerY = rect.height / 2;\
+      const drumRadius = (rect.width / 2) - 10;\
+\
+      ctx.clearRect(0, 0, rect.width, rect.height);\
+\
+      // 
+\f1 \'c3\'b8\'bb\'73\'b9\'aa\'a4\'ba\'a4\'a4\'a4\'df\'c5\'cd\'a9\'d5\'b1\'db\'ad\'b7\'b7\'4c\'a5\'fa
+\f0 \
+      ctx.save();\
+      const centerGrad = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, drumRadius);\
+      centerGrad.addColorStop(0, 'rgba(255, 215, 0, 0.12)');\
+      centerGrad.addColorStop(0.7, 'rgba(123, 44, 191, 0.08)');\
+      centerGrad.addColorStop(1, 'transparent');\
+      ctx.fillStyle = centerGrad;\
+      ctx.beginPath();\
+      ctx.arc(centerX, centerY, drumRadius, 0, Math.PI * 2);\
+      ctx.fill();\
+      ctx.restore();\
+\
+      // 
+\f1 \'a7\'f3\'b7\'73\'bb\'50\'c3\'b8\'bb\'73\'a8\'43\'a4\'40\'c1\'fb\'b2\'79
+\f0 \
+      for (let b of balls) \{\
+        b.update(drumRadius, drumSpeedMultiplier);\
+        b.draw(ctx, centerX, centerY);\
+      \}\
+\
+      // 
+\f1 \'a4\'a4\'a4\'df\'c2\'e0\'b6\'62\'be\'f7\'b1\'f1\'b5\'b2\'ba\'63\'b5\'f8\'c4\'b1
+\f0 \
+      ctx.save();\
+      ctx.beginPath();\
+      ctx.arc(centerX, centerY, 14, 0, Math.PI * 2);\
+      ctx.fillStyle = '#f59e0b';\
+      ctx.shadowColor = '#d97706';\
+      ctx.shadowBlur = 8;\
+      ctx.fill();\
+      ctx.beginPath();\
+      ctx.arc(centerX, centerY, 6, 0, Math.PI * 2);\
+      ctx.fillStyle = '#451a03';\
+      ctx.fill();\
+      ctx.restore();\
+\
+      animFrameId = requestAnimationFrame(renderDrum);\
+    \}\
+\
+    // ==========================================\
+    // 3. 
+\f1 \'a5\'78\'c6\'57\'a4\'6a\'bc\'d6\'b3\'7a\'bf\'ef\'b8\'b9\'ba\'74\'ba\'e2\'aa\'6b
+\f0  (
+\f1 \'a7\'74\'a5\'c8\'be\'c7\'c2\'6f\'c3\'e8
+\f0 )\
+    // ==========================================\
+    // 
+\f1 \'be\'fa\'a5\'76\'bc\'f6\'aa\'f9\'a4\'6a\'bc\'d6\'b3\'7a\'b0\'be\'a6\'6e\'b8\'b9\'bd\'58\'b8\'73
+\f0  (
+\f1 \'a8\'cc\'b2\'ce\'ad\'70\'bd\'ec\'a8\'fd
+\f0 )\
+    const HOT_NUMBERS = [8, 1, 11, 23, 28, 32, 38, 41, 46, 49, 16, 7];\
+\
+    function generateSingleLottoBet(strategy = 'pure', luckyList = []) \{\
+      const pool = Array.from(\{ length: 49 \}, (_, i) => i + 1);\
+      let selected = [];\
+\
+      // 1. 
+\f1 \'a6\'70\'aa\'47\'a6\'b3\'ab\'fc\'a9\'77\'a5\'bb\'a9\'52\'a9\'af\'b9\'42\'b8\'b9\'a1\'41\'c0\'75\'a5\'fd\'a9\'f1\'a4\'4a
+\f0 \
+      if (strategy === 'customLucky' && luckyList.length > 0) \{\
+        luckyList.forEach(num => \{\
+          if (num >= 1 && num <= 49 && !selected.includes(num)) \{\
+            selected.push(num);\
+          \}\
+        \});\
+      \}\
+\
+      // 2. 
+\f1 \'a8\'cc\'b7\'d3\'a4\'a3\'a6\'50\'bc\'d2\'a6\'a1\'a9\'e2\'a8\'ac
+\f0  6 
+\f1 \'c1\'fb\'a5\'bf\'bd\'58
+\f0 \
+      while (selected.length < 6) \{\
+        let candidate;\
+        \
+        if (strategy === 'popular' && Math.random() < 0.5) \{\
+          // 50% 
+\f1 \'be\'f7\'b2\'76\'ac\'44\'bf\'ef\'bc\'f6\'aa\'f9\'a9\'af\'b9\'42\'b8\'b9
+\f0 \
+          candidate = HOT_NUMBERS[Math.floor(Math.random() * HOT_NUMBERS.length)];\
+        \} else \{\
+          candidate = pool[Math.floor(Math.random() * pool.length)];\
+        \}\
+\
+        // 
+\f1 \'c1\'d7\'a7\'4b\'ad\'ab\'bd\'c6
+\f0 \
+        if (selected.includes(candidate)) continue;\
+\
+        // 
+\f1 \'ad\'59\'ac\'b0\'b3\'b1\'b6\'a7\'a5\'ad\'bf\'c5\'bc\'d2\'a6\'a1\'a1\'41\'b1\'b1\'a8\'ee\'a9\'5f\'b0\'b8\'a4\'f1\'ba\'c9\'b6\'71\'a6\'62
+\f0  3:3 
+\f1 \'a9\'ce
+\f0  4:2\
+        if (strategy === 'balanced' && selected.length >= 4) \{\
+          const oddCount = selected.filter(n => n % 2 !== 0).length;\
+          const isOdd = candidate % 2 !== 0;\
+          if (oddCount >= 4 && isOdd) continue; // 
+\f1 \'a9\'5f\'bc\'c6\'a4\'77\'a4\'d3\'a6\'68\'a1\'41\'b4\'ab\'a4\'40\'c1\'fb\'b0\'b8\'bc\'c6
+\f0 \
+          if (oddCount <= 1 && !isOdd) continue; // 
+\f1 \'b0\'b8\'bc\'c6\'a4\'77\'a4\'d3\'a6\'68\'a1\'41\'b4\'ab\'a4\'40\'c1\'fb\'a9\'5f\'bc\'c6
+\f0 \
+        \}\
+\
+        selected.push(candidate);\
+      \}\
+\
+      // 
+\f1 \'b1\'c6\'a7\'c7
+\f0  6 
+\f1 \'c1\'fb\'a5\'bf\'bd\'58\'a1\'5d\'a4\'e8\'ab\'4b\'b9\'ef\'bc\'fa\'a1\'5e
+\f0 \
+      selected.sort((a, b) => a - b);\
+\
+      // 3. 
+\f1 \'a9\'e2\'a8\'fa\'b2\'c4
+\f0  7 
+\f1 \'c1\'fb\'a1\'47\'af\'53\'a7\'4f\'b8\'b9\'a1\'5d\'a4\'a3\'af\'e0\'bb\'50\'ab\'65\'ad\'b1
+\f0  6 
+\f1 \'c1\'fb\'ad\'ab\'bd\'c6\'a1\'5e
+\f0 \
+      let specialPool = pool.filter(n => !selected.includes(n));\
+      const special = specialPool[Math.floor(Math.random() * specialPool.length)];\
+\
+      return \{\
+        regular: selected,\
+        special: special\
+      \};\
+    \}\
+\
+    // ==========================================\
+    // 4. UI 
+\f1 \'a4\'ac\'b0\'ca\'bb\'50\'b1\'6d\'a8\'e9\'b4\'e8\'ac\'56\'c5\'de\'bf\'e8
+\f0 \
+    // ==========================================\
+    const drawBtn = document.getElementById('drawBtn');\
+    const batch5Btn = document.getElementById('batch5Btn');\
+    const trayContainer = document.getElementById('trayContainer');\
+    const ticketRowsList = document.getElementById('ticketRowsList');\
+    const totalBetAmount = document.getElementById('totalBetAmount');\
+    const ballCountTracker = document.getElementById('ballCountTracker');\
+    const drawStatusText = document.getElementById('drawStatusText');\
+    const copyNumbersBtn = document.getElementById('copyNumbersBtn');\
+    const clearAllBtn = document.getElementById('clearAllBtn');\
+    const toast = document.getElementById('toast');\
+    const toastMsg = document.getElementById('toastMsg');\
+    const soundToggleBtn = document.getElementById('soundToggleBtn');\
+    const luckyInputsRow = document.getElementById('luckyInputsRow');\
+\
+    let ticketBets = []; // 
+\f1 \'a6\'73\'c0\'78\'a5\'d8\'ab\'65\'a4\'55\'aa\'60\'b2\'4d\'b3\'e6
+\f0 \
+    const BET_UNIT_PRICE = 50; // 
+\f1 \'a8\'43\'aa\'60
+\f0  50 
+\f1 \'a4\'b8
+\f0 \
+\
+    // 
+\f1 \'ae\'e6\'a6\'a1\'a4\'c6\'bc\'c6\'a6\'72\'b8\'c9\'b9\'73
+\f0  (
+\f1 \'a8\'d2
+\f0 : 7 -> "07")\
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);\
+\
+    // 
+\f1 \'a8\'fa\'b1\'6f\'b8\'b9\'bd\'58\'b9\'ef\'c0\'b3\'aa\'ba
+\f0  Tailwind 
+\f1 \'bc\'cb\'a6\'a1
+\f0  Class\
+    function getBallCssClass(n, isSpecial = false) \{\
+      if (isSpecial) return 'ball-special';\
+      if (n <= 10) return 'ball-tier-1';\
+      if (n <= 20) return 'ball-tier-2';\
+      if (n <= 30) return 'ball-tier-3';\
+      if (n <= 40) return 'ball-tier-4';\
+      return 'ball-tier-5';\
+    \}\
+\
+    // 
+\f1 \'a8\'fa\'b1\'6f\'b7\'ed\'ab\'65\'a5\'c8\'be\'c7\'bf\'ef\'b8\'b9\'b3\'5d\'a9\'77
+\f0 \
+    function getStrategyConfig() \{\
+      const radios = document.getElementsByName('pickStrategy');\
+      let strategy = 'pure';\
+      for (let r of radios) \{\
+        if (r.checked) strategy = r.value;\
+      \}\
+      const lucky1 = parseInt(document.getElementById('luckyNum1').value, 10);\
+      const lucky2 = parseInt(document.getElementById('luckyNum2').value, 10);\
+      const luckyList = [];\
+      if (!isNaN(lucky1)) luckyList.push(lucky1);\
+      if (!isNaN(lucky2)) luckyList.push(lucky2);\
+      return \{ strategy, luckyList \};\
+    \}\
+\
+    // 
+\f1 \'ba\'ca\'c5\'a5\'bc\'d2\'a6\'a1\'a4\'c1\'b4\'ab\'a1\'41\'c5\'e3\'a5\'dc
+\f0 /
+\f1 \'c1\'f4\'c2\'c3\'a6\'db\'ad\'71\'a9\'af\'b9\'42\'b8\'b9\'bf\'e9\'a4\'4a\'c4\'e6
+\f0 \
+    document.querySelectorAll('input[name="pickStrategy"]').forEach(radio => \{\
+      radio.addEventListener('change', (e) => \{\
+        if (e.target.value === 'customLucky') \{\
+          luckyInputsRow.classList.remove('opacity-40', 'pointer-events-none');\
+        \} else \{\
+          luckyInputsRow.classList.add('opacity-40', 'pointer-events-none');\
+        \}\
+      \});\
+    \});\
+\
+    // 
+\f1 \'b0\'f5\'a6\'e6\'a4\'40\'a6\'b8\'a5\'cd\'b0\'ca\'aa\'ba\'a5\'58\'b2\'79\'b7\'6e\'bc\'fa\'ac\'79\'b5\'7b
+\f0 \
+    async function runDrawAnimation() \{\
+      if (isDrawing) return;\
+      isDrawing = true;\
+      drawBtn.disabled = true;\
+      batch5Btn.disabled = true;\
+      drawBtn.classList.add('opacity-70', 'cursor-not-allowed');\
+\
+      // 1. 
+\f1 \'b2\'a3\'a5\'cd\'ad\'70\'ba\'e2\'b5\'b2\'aa\'47
+\f0 \
+      const \{ strategy, luckyList \} = getStrategyConfig();\
+      const bet = generateSingleLottoBet(strategy, luckyList);\
+\
+      // 2. 
+\f1 \'b2\'4d\'aa\'c5\'b7\'ed\'ab\'65\'b7\'c6\'b9\'44\'bc\'d1\'a6\'ec
+\f0 \
+      trayContainer.innerHTML = '';\
+      for (let i = 0; i < 7; i++) \{\
+        const slot = document.createElement('div');\
+        slot.className = `w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-dashed $\{i === 6 ? 'border-purple-600' : 'border-slate-700'\} flex items-center justify-center text-slate-500 text-xs font-mono`;\
+        slot.textContent = i === 6 ? '
+\f1 \'af\'53
+\f0 ' : i + 1;\
+        trayContainer.appendChild(slot);\
+        if (i === 5) \{\
+          const plus = document.createElement('span');\
+          plus.className = 'text-purple-400 text-base font-bold';\
+          plus.textContent = '+';\
+          trayContainer.appendChild(plus);\
+        \}\
+      \}\
+\
+      // 3. 
+\f1 \'a5\'5b\'b3\'74\'ba\'75\'b5\'a9\'ae\'f0\'ac\'79\'a8\'67\'c2\'e0
+\f0 \
+      drumSpeedMultiplier = 3.6;\
+      drawStatusText.textContent = '
+\f2 \uc0\u9889 
+\f0  
+\f1 \'b1\'6a\'a4\'4f\'ae\'f0\'b1\'db\'a7\'6a\'a9\'d8\'a4\'a4\'a1\'49\'a5\'bf\'a6\'62\'c2\'ea\'a9\'77\'a6\'4e\'bc\'c6
+\f0 ...';\
+\
+      // 
+\f1 \'a8\'cc\'a7\'c7\'b6\'7d\'a5\'58
+\f0  6 
+\f1 \'c1\'fb\'a5\'bf\'bd\'58
+\f0  + 1 
+\f1 \'c1\'fb\'af\'53\'a7\'4f\'b8\'b9
+\f0 \
+      const drawSequence = [\
+        ...bet.regular.map(n => (\{ num: n, special: false \})),\
+        \{ num: bet.special, special: true \}\
+      ];\
+\
+      // 
+\f1 \'a8\'43\'c1\'fb\'b2\'79\'a5\'58\'b2\'79\'b6\'a1\'b9\'6a
+\f0 \
+      for (let i = 0; i < drawSequence.length; i++) \{\
+        await new Promise(resolve => setTimeout(resolve, 380));\
+        \
+        const item = drawSequence[i];\
+        ballCountTracker.textContent = `$\{i + 1\} / 7 
+\f1 \'c1\'fb
+\f0 `;\
+        \
+        // 
+\f1 \'b4\'c0\'b4\'ab\'b7\'c6\'b9\'44\'a4\'a4\'aa\'ba\'bc\'d1\'a6\'ec
+\f0 \
+        const slots = trayContainer.querySelectorAll('div');\
+        const targetSlot = slots[i];\
+        if (targetSlot) \{\
+          targetSlot.className = `w-10 h-10 sm:w-12 sm:h-12 lotto-ball text-sm sm:text-base $\{getBallCssClass(item.num, item.special)\} transform scale-125 transition-transform duration-300`;\
+          targetSlot.textContent = pad(item.num);\
+          setTimeout(() => targetSlot.classList.remove('scale-125'), 150);\
+          sound.hitTarget(item.special);\
+        \}\
+      \}\
+\
+      // 4. 
+\f1 \'a5\'58\'b2\'79\'b5\'b2\'a7\'f4\'a1\'41\'b4\'5f\'ad\'ec\'ba\'75\'b5\'a9\'b3\'74\'ab\'d7
+\f0 \
+      drumSpeedMultiplier = 1.0;\
+      drawStatusText.textContent = '
+\f2 \uc0\u55356 \u57225 
+\f0  
+\f1 \'b6\'7d\'bc\'fa\'a7\'b9\'a6\'a8\'a1\'49\'af\'ac\'b1\'7a\'b0\'aa\'a4\'a4\'c0\'59\'b1\'6d\'a1\'49
+\f0 ';\
+      sound.fanfare();\
+\
+      // 5. 
+\f1 \'a5\'5b\'a4\'4a\'b1\'6d\'a8\'e9\'aa\'60\'b3\'e6
+\f0 \
+      addBetToTicket(bet);\
+\
+      isDrawing = false;\
+      drawBtn.disabled = false;\
+      batch5Btn.disabled = false;\
+      drawBtn.classList.remove('opacity-70', 'cursor-not-allowed');\
+    \}\
+\
+    // 
+\f1 \'b1\'4e\'b8\'b9\'bd\'58\'a5\'5b\'a4\'4a\'b1\'6d\'a8\'e9\'aa\'60\'b3\'e6\'c0\'cb\'b5\'f8
+\f0 \
+    function addBetToTicket(bet) \{\
+      // 
+\f1 \'ad\'59\'b6\'57\'b9\'4c
+\f0  5 
+\f1 \'aa\'60\'a1\'41\'b4\'a3\'a5\'dc\'a6\'db\'b0\'ca\'b4\'ab\'b1\'69
+\f0 \
+      if (ticketBets.length >= 5) \{\
+        showToast('
+\f1 \'a4\'40\'b1\'69\'b1\'6d\'a8\'e9\'b3\'cc\'a6\'68
+\f0  5 
+\f1 \'aa\'60\'a1\'41\'a4\'77\'ac\'b0\'b1\'7a\'a6\'db\'b0\'ca\'a6\'43\'a6\'4c\'a5\'fe\'b7\'73\'a4\'40\'c1\'70\'a1\'49
+\f0 ', '
+\f2 \uc0\u55358 \u56830 
+\f0 ');\
+        ticketBets = [];\
+        ticketRowsList.innerHTML = '';\
+      \}\
+\
+      ticketBets.push(bet);\
+      renderTicket();\
+    \}\
+\
+    // 
+\f1 \'b3\'73\'c4\'f2\'a7\'d6\'b3\'74
+\f0  5 
+\f1 \'aa\'60\'a1\'5d\'be\'e3\'b1\'69\'a5\'5d\'b5\'50\'a7\'d6\'bf\'ef\'a1\'5e
+\f0 \
+    async function drawBatch5() \{\
+      if (isDrawing) return;\
+      isDrawing = true;\
+      drawBtn.disabled = true;\
+      batch5Btn.disabled = true;\
+      ticketBets = [];\
+      ticketRowsList.innerHTML = '';\
+\
+      drumSpeedMultiplier = 3.2;\
+      drawStatusText.textContent = '
+\f2 \uc0\u55357 \u56960 
+\f0  
+\f1 \'a5\'fe\'b3\'74\'a6\'4c\'bb\'73\'a4\'40\'be\'e3\'b1\'69\'a4\'6a\'bc\'d6\'b3\'7a\'a1\'5d
+\f0 5 
+\f1 \'aa\'60\'a1\'5e
+\f0 ...';\
+\
+      const \{ strategy, luckyList \} = getStrategyConfig();\
+\
+      for (let row = 0; row < 5; row++) \{\
+        const bet = generateSingleLottoBet(strategy, luckyList);\
+        ticketBets.push(bet);\
+        sound.popBall();\
+        await new Promise(r => setTimeout(r, 140));\
+      \}\
+\
+      // 
+\f1 \'b1\'4e\'b3\'cc\'ab\'e1\'a4\'40\'aa\'60\'aa\'ba\'b2\'79\'a9\'f1\'a4\'4a\'ae\'69\'a5\'dc\'b7\'c6\'b9\'44
+\f0 \
+      const lastBet = ticketBets[4];\
+      trayContainer.innerHTML = '';\
+      lastBet.regular.forEach(n => \{\
+        const d = document.createElement('div');\
+        d.className = `w-10 h-10 sm:w-12 sm:h-12 lotto-ball text-sm sm:text-base $\{getBallCssClass(n, false)\}`;\
+        d.textContent = pad(n);\
+        trayContainer.appendChild(d);\
+      \});\
+      const plus = document.createElement('span');\
+      plus.className = 'text-purple-400 text-base font-bold';\
+      plus.textContent = '+';\
+      trayContainer.appendChild(plus);\
+\
+      const sp = document.createElement('div');\
+      sp.className = `w-10 h-10 sm:w-12 sm:h-12 lotto-ball text-sm sm:text-base $\{getBallCssClass(lastBet.special, true)\}`;\
+      sp.textContent = pad(lastBet.special);\
+      trayContainer.appendChild(sp);\
+\
+      ballCountTracker.textContent = `7 / 7 
+\f1 \'c1\'fb
+\f0 `;\
+      renderTicket();\
+      sound.fanfare();\
+      drumSpeedMultiplier = 1.0;\
+      drawStatusText.textContent = '
+\f2 \uc0\u55356 \u57259 
+\f0  
+\f1 \'a4\'ad\'aa\'60\'a4\'6a\'bc\'d6\'b3\'7a\'a7\'d6\'bf\'ef\'a7\'b9\'b2\'a6\'a1\'49
+\f0 ';\
+      showToast('
+\f1 \'a4\'77\'a7\'b9\'a6\'a8
+\f0  5 
+\f1 \'aa\'60\'b9\'71\'b8\'a3\'a7\'d6\'bf\'ef\'a1\'41\'af\'ac\'b0\'5d\'b7\'bd\'ba\'75\'ba\'75\'a1\'49
+\f0 ', '
+\f2 \uc0\u55356 \u57225 
+\f0 ');\
+\
+      isDrawing = false;\
+      drawBtn.disabled = false;\
+      batch5Btn.disabled = false;\
+    \}\
+\
+    // 
+\f1 \'ad\'ab\'b7\'73\'c3\'b8\'bb\'73\'b1\'6d\'a8\'e9\'a5\'64\'a4\'f9\'a4\'ba\'ae\'65
+\f0 \
+    function renderTicket() \{\
+      ticketRowsList.innerHTML = '';\
+      const letters = ['A', 'B', 'C', 'D', 'E'];\
+\
+      ticketBets.forEach((bet, idx) => \{\
+        const row = document.createElement('div');\
+        row.className = 'flex items-center justify-between text-xs py-1.5 px-2 bg-amber-50 rounded-lg border border-amber-200/80 font-mono shadow-sm hover:bg-white transition';\
+\
+        const rowLetter = document.createElement('span');\
+        rowLetter.className = 'w-5 h-5 flex items-center justify-center bg-amber-200/90 text-amber-900 font-bold rounded text-[11px]';\
+        rowLetter.textContent = letters[idx];\
+\
+        // 6 
+\f1 \'c1\'fb\'a5\'bf\'bd\'58\'b2\'79
+\f0 \
+        const regularGroup = document.createElement('div');\
+        regularGroup.className = 'flex items-center gap-1 sm:gap-1.5';\
+        bet.regular.forEach(num => \{\
+          const ball = document.createElement('span');\
+          ball.className = `w-6 h-6 sm:w-7 sm:h-7 lotto-ball text-[10px] sm:text-xs $\{getBallCssClass(num)\}`;\
+          ball.textContent = pad(num);\
+          regularGroup.appendChild(ball);\
+        \});\
+\
+        // 
+\f1 \'a5\'5b\'b8\'b9
+\f0 \
+        const plusSign = document.createElement('span');\
+        plusSign.className = 'text-purple-600 font-bold text-xs';\
+        plusSign.textContent = '+';\
+\
+        // 
+\f1 \'af\'53\'a7\'4f\'b8\'b9
+\f0 \
+        const spBall = document.createElement('span');\
+        spBall.className = `w-6 h-6 sm:w-7 sm:h-7 lotto-ball text-[10px] sm:text-xs $\{getBallCssClass(bet.special, true)\}`;\
+        spBall.textContent = pad(bet.special);\
+\
+        row.appendChild(rowLetter);\
+        row.appendChild(regularGroup);\
+        row.appendChild(plusSign);\
+        row.appendChild(spBall);\
+        ticketRowsList.appendChild(row);\
+      \});\
+\
+      // 
+\f1 \'a7\'f3\'b7\'73\'c1\'60\'a4\'55\'aa\'60\'aa\'f7\'c3\'42
+\f0 \
+      const totalCost = ticketBets.length * BET_UNIT_PRICE;\
+      totalBetAmount.textContent = `NT$ $\{totalCost\}`;\
+    \}\
+\
+    // 
+\f1 \'bd\'c6\'bb\'73\'aa\'60\'b3\'e6\'b8\'b9\'bd\'58\'a6\'dc\'b0\'c5\'b6\'4b\'c3\'af
+\f0 \
+    function copyTicketNumbers() \{\
+      if (ticketBets.length === 0) \{\
+        showToast('
+\f1 \'a5\'d8\'ab\'65\'a9\'7c\'b5\'4c\'b8\'b9\'bd\'58\'a1\'41\'bd\'d0\'a5\'fd\'b7\'6e\'b8\'b9\'a1\'49
+\f0 ', '
+\f2 \uc0\u9888 \u65039 
+\f0 ');\
+        return;\
+      \}\
+\
+      const letters = ['A', 'B', 'C', 'D', 'E'];\
+      let copyText = `
+\f2 \uc0\u55356 \u57264 
+\f0  
+\f1 \'a1\'69\'a4\'6a\'bc\'d6\'b3\'7a\'bf\'ef\'b8\'b9\'a7\'d6\'bf\'ef\'b3\'e6\'a1\'6a
+\f0  
+\f2 \uc0\u55356 \u57264 
+\f0 \\n`;\
+      copyText += `
+\f1 \'b6\'7d\'bc\'fa\'b4\'c1\'a7\'4f\'a1\'47\'b2\'c4
+\f0  115000088 
+\f1 \'b4\'c1
+\f0 \\n`;\
+      copyText += `----------------------------\\n`;\
+      ticketBets.forEach((b, i) => \{\
+        const regStr = b.regular.map(n => pad(n)).join('  ');\
+        copyText += `$\{letters[i]\} 
+\f1 \'aa\'60
+\f0 :  $\{regStr\}  + 
+\f1 \'af\'53
+\f0  $\{pad(b.special)\}\\n`;\
+      \});\
+      copyText += `----------------------------\\n`;\
+      copyText += `
+\f1 \'c1\'60\'ad\'70\'a1\'47
+\f0 $\{ticketBets.length\} 
+\f1 \'aa\'60\'a1\'41\'a6\'58\'ad\'70
+\f0  NT$ $\{ticketBets.length * BET_UNIT_PRICE\} 
+\f1 \'a4\'b8
+\f0 \\n
+\f1 \'af\'ac\'b1\'7a\'a9\'af\'b9\'42\'a4\'a4\'c0\'59\'bc\'fa\'a1\'49
+\f2 \uc0\u55357 \u56496 
+\f0 `;\
+\
+      // 
+\f1 \'b1\'c4\'a5\'ce
+\f0  document.execCommand 
+\f1 \'ab\'4f\'bb\'d9
+\f0  iframe 
+\f1 \'ac\'db\'ae\'65\'a9\'ca
+\f0 \
+      const tempArea = document.createElement('textarea');\
+      tempArea.value = copyText;\
+      tempArea.style.position = 'fixed';\
+      tempArea.style.opacity = '0';\
+      document.body.appendChild(tempArea);\
+      tempArea.select();\
+      try \{\
+        document.execCommand('copy');\
+        showToast('
+\f1 \'a4\'77\'a6\'a8\'a5\'5c\'bd\'c6\'bb\'73\'a4\'55\'aa\'60\'b2\'4d\'b3\'e6\'a6\'dc\'b0\'c5\'b6\'4b\'c3\'af\'a1\'49
+\f0 ', '
+\f2 \uc0\u55357 \u56523 
+\f0 ');\
+      \} catch (err) \{\
+        showToast('
+\f1 \'bd\'c6\'bb\'73\'a5\'a2\'b1\'d1\'a1\'41\'bd\'d0\'a4\'e2\'b0\'ca\'a7\'db\'bc\'67\'b8\'b9\'bd\'58\'a1\'43
+\f0 ', '
+\f2 \uc0\u10060 
+\f0 ');\
+      \}\
+      document.body.removeChild(tempArea);\
+    \}\
+\
+    // 
+\f1 \'c5\'e3\'a5\'dc\'b7\'4c\'ab\'ac\'af\'42\'b0\'ca\'b4\'a3\'a5\'dc
+\f0  (Toast)\
+    let toastTimeout = null;\
+    function showToast(msg, icon = '
+\f2 \uc0\u10024 
+\f0 ') \{\
+      document.getElementById('toastMsg').textContent = msg;\
+      document.getElementById('toastIcon').textContent = icon;\
+      toast.classList.remove('translate-y-24', 'opacity-0');\
+      toast.classList.add('translate-y-0', 'opacity-100');\
+      if (toastTimeout) clearTimeout(toastTimeout);\
+      toastTimeout = setTimeout(() => \{\
+        toast.classList.add('translate-y-24', 'opacity-0');\
+        toast.classList.remove('translate-y-0', 'opacity-100');\
+      \}, 2600);\
+    \}\
+\
+    // 
+\f1 \'b2\'4d\'aa\'c5\'ad\'ab\'b8\'6d
+\f0 \
+    function clearTicket() \{\
+      ticketBets = [];\
+      ticketRowsList.innerHTML = `\
+        <div class="flex items-center justify-between text-xs py-1 px-1 bg-amber-50/70 rounded-lg border border-amber-200/60 font-mono">\
+          <div class="flex items-center gap-1.5 font-bold text-amber-900">\
+            <span class="bg-amber-200 text-amber-900 px-1 rounded">A</span>\
+            <span class="text-stone-400 text-[11px]">
+\f1 \'a9\'7c\'a5\'bc\'b7\'6e\'b8\'b9\'a1\'41\'bd\'d0\'ab\'f6\'a4\'55\'b6\'7d\'bc\'fa\'ab\'f6\'b6\'73
+\f0 </span>\
+          </div>\
+        </div>\
+      `;\
+      totalBetAmount.textContent = 'NT$ 0';\
+      ballCountTracker.textContent = '0 / 7 
+\f1 \'c1\'fb
+\f0 ';\
+      drawStatusText.textContent = '
+\f1 \'b7\'6e\'bc\'fa\'be\'f7\'a4\'77\'a5\'52\'af\'e0\'a1\'45\'c0\'48\'ae\'c9\'b7\'c7\'b3\'c6\'a5\'58\'b2\'79
+\f0 ';\
+      showToast('
+\f1 \'aa\'60\'b3\'e6\'a4\'77\'b2\'4d\'aa\'c5\'a1\'41\'a5\'69\'ad\'ab\'b7\'73\'bf\'ef\'b8\'b9\'a1\'43
+\f0 ', '
+\f2 \uc0\u55358 \u56825 
+\f0 ');\
+    \}\
+\
+    // ==========================================\
+    // 5. 
+\f1 \'a8\'c6\'a5\'f3\'ba\'ca\'c5\'a5\'b8\'6a\'a9\'77
+\f0 \
+    // ==========================================\
+    window.addEventListener('load', () => \{\
+      initDrum();\
+      renderDrum();\
+      \
+      // 
+\f1 \'a7\'f3\'b7\'73\'b1\'6d\'a8\'e9\'b4\'c1\'a7\'4f\'a4\'e9\'b4\'c1\'ac\'b0\'b7\'ed\'ab\'65\'ac\'50\'b4\'c1\'a4\'47\'a9\'ce\'a4\'ad\'a1\'5d\'a4\'6a\'bc\'d6\'b3\'7a\'b6\'7d\'bc\'fa\'a4\'e9\'bd\'ec\'a8\'fd\'a1\'5e
+\f0 \
+      const today = new Date();\
+      const dateStr = `$\{today.getFullYear()\}/$\{pad(today.getMonth() + 1)\}/$\{pad(today.getDate())\}`;\
+      document.getElementById('ticketDrawDate').textContent = `
+\f1 \'b6\'7d\'bc\'fa\'a4\'e9\'b4\'c1\'a1\'47
+\f0 $\{dateStr\}
+\f1 \'a1\'45\'b9\'71\'b8\'a3\'a7\'d6\'bf\'ef
+\f0 `;\
+    \});\
+\
+    window.addEventListener('resize', () => \{\
+      initDrum();\
+    \});\
+\
+    drawBtn.addEventListener('click', () => \{\
+      sound.init();\
+      runDrawAnimation();\
+    \});\
+\
+    batch5Btn.addEventListener('click', () => \{\
+      sound.init();\
+      drawBatch5();\
+    \});\
+\
+    copyNumbersBtn.addEventListener('click', copyTicketNumbers);\
+    clearAllBtn.addEventListener('click', clearTicket);\
+\
+    // 
+\f1 \'ad\'b5\'ae\'c4\'b6\'7d\'c3\'f6\'a4\'c1\'b4\'ab
+\f0 \
+    soundToggleBtn.addEventListener('click', () => \{\
+      sound.init();\
+      sound.enabled = !sound.enabled;\
+      document.getElementById('soundIcon').textContent = sound.enabled ? '
+\f2 \uc0\u55357 \u56586 
+\f0 ' : '
+\f2 \uc0\u55357 \u56583 
+\f0 ';\
+      document.getElementById('soundToggleBtn').querySelector('span:last-child').textContent = sound.enabled ? '
+\f1 \'ad\'b5\'ae\'c4\'b6\'7d
+\f0 ' : '
+\f1 \'c0\'52\'ad\'b5
+\f0 ';\
+      showToast(sound.enabled ? '
+\f1 \'a4\'77\'b6\'7d\'b1\'d2\'b5\'6f\'b0\'5d\'ad\'b5\'ae\'c4
+\f0  
+\f2 \uc0\u55357 \u56586 
+\f0 ' : '
+\f1 \'a4\'77\'a4\'c1\'b4\'ab\'ac\'b0\'c0\'52\'ad\'b5\'bc\'d2\'a6\'a1
+\f0  
+\f2 \uc0\u55357 \u56583 
+\f0 ', sound.enabled ? '
+\f2 \uc0\u55357 \u56596 
+\f0 ' : '
+\f2 \uc0\u55357 \u56597 
+\f0 ');\
+    \});\
+\
+    // 
+\f1 \'c1\'e4\'bd\'4c\'aa\'c5\'a5\'d5\'c1\'e4\'a7\'d6\'b3\'74\'a5\'58\'b2\'79
+\f0 \
+    window.addEventListener('keydown', (e) => \{\
+      if (e.code === 'Space' && e.target.tagName !== 'INPUT' && !isDrawing) \{\
+        e.preventDefault();\
+        sound.init();\
+        runDrawAnimation();\
+      \}\
+    \});\
+  </script>\
+</body>\
+</html>}
